@@ -1,0 +1,7 @@
+{
+  "name": "AppPlanti",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
