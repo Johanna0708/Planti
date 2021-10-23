@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "AppPlanti",
+	"webDir": "dist",
+	"bundledWebRuntime": false
+}
