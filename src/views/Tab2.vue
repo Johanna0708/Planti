@@ -2,7 +2,7 @@
   <ion-page>
     <ion-header>
       <ion-toolbar>
-        <ion-title>Tab 2</ion-title>
+        <ion-title>Pflanzendatenbank</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content :fullscreen="true">
@@ -11,18 +11,55 @@
           <ion-title size="large">Tab 2</ion-title>
         </ion-toolbar>
       </ion-header>
-      
-      <ExploreContainer name="Tab 2 page" />
+
+      <ion-searchbar placeholder="Pflanzenname"> </ion-searchbar>
+
+      <ion-list>
+        <ion-item v-for="item in items" :key="item.src">
+          <ion-thumbnail slot="start">
+            <img src="../img/monstera.png"/>
+          </ion-thumbnail>
+          <ion-label>{{item.text}}</ion-label>
+        </ion-item>
+      </ion-list>
+
     </ion-content>
   </ion-page>
 </template>
 
 <script lang="ts">
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
-import ExploreContainer from '@/components/ExploreContainer.vue';
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent,IonList, IonSearchbar, IonThumbnail } from '@ionic/vue';
+import { leaf, search } from 'ionicons/icons';
+import { defineComponent } from 'vue';
 
-export default  {
+
+export default defineComponent ({
   name: 'Tab2',
-  components: { ExploreContainer, IonHeader, IonToolbar, IonTitle, IonContent, IonPage }
-}
+  components: { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonList, IonSearchbar, IonThumbnail  },
+
+  setup() {
+    const items = [{
+      'text': 'Pflanze 1',
+      'src': '../img/monstera.png'
+      },
+      { 'text': 'Pflanze 2',
+        'src': '../img/monstera.png'
+      },
+      {
+        'text': 'Pflanze 3',
+        'src': '../img/planze2.png'
+      },
+      {
+        'text': 'Pflanze 4',
+        'src': '../img/monstera.png'
+      }];
+
+    return {
+      leaf,
+      search,
+      items,
+    }
+  }
+})
+
 </script>
