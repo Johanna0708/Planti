@@ -1,65 +1,56 @@
 <template>
   <ion-page>
     <ion-header>
-      <ion-toolbar>
-        <ion-title>Pflanzendatenbank</ion-title>
+      <ion-toolbar class="ion-padding-top ion-padding-end">
+        <ion-item slot="end">
+          <div>
+            <img width="130" src="../img/Logo.png"/>
+          </div>
+        </ion-item>
       </ion-toolbar>
     </ion-header>
+
     <ion-content :fullscreen="true">
-      <ion-header collapse="condense">
-        <ion-toolbar>
-          <ion-title size="large">Tab 2</ion-title>
-        </ion-toolbar>
-      </ion-header>
+      <ion-title color="primary"><h2>Meine Pflanzen</h2></ion-title>
 
-      <ion-searchbar placeholder="Pflanzenname"> </ion-searchbar>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="4" :key="photo" v-for="photo in photos">
+            <ion-img :src="photo.webviewPath"></ion-img>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
 
-      <ion-list>
-        <ion-item v-for="item in items" :key="item.src">
-          <ion-thumbnail slot="start">
-            <img src="../img/monstera.png"/>
-          </ion-thumbnail>
-          <ion-label>{{item.text}}</ion-label>
-        </ion-item>
-      </ion-list>
+      <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+        <ion-fab-button @click="takePhoto()">
+          <ion-icon :icon="camera"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
 
     </ion-content>
+
   </ion-page>
 </template>
 
 <script lang="ts">
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent,IonList, IonSearchbar, IonThumbnail } from '@ionic/vue';
-import { leaf, search } from 'ionicons/icons';
+import {  IonPage, IonHeader, IonFab, IonFabButton, IonIcon, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonImg } from '@ionic/vue';
+import { camera, trash, close } from 'ionicons/icons';
 import { defineComponent } from 'vue';
-
+import { usePhotoGallery,UserPhoto } from '@/composables/usePhotoGallery';
 
 export default defineComponent ({
-  name: 'Tab2',
-  components: { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonList, IonSearchbar, IonThumbnail  },
+  name: 'Tab3',
+  components: { IonPage, IonHeader, IonFab, IonFabButton, IonIcon, IonToolbar, IonTitle, IonContent },
 
   setup() {
-    const items = [{
-      'text': 'Pflanze 1',
-      'src': '../img/monstera.png'
-      },
-      { 'text': 'Pflanze 2',
-        'src': '../img/monstera.png'
-      },
-      {
-        'text': 'Pflanze 3',
-        'src': '../img/planze2.png'
-      },
-      {
-        'text': 'Pflanze 4',
-        'src': '../img/monstera.png'
-      }];
+    const { photos, takePhoto } = usePhotoGallery();
 
     return {
-      leaf,
-      search,
-      items,
+      photos,
+      takePhoto,
+      camera, trash, close
     }
   }
-})
 
+})
 </script>
