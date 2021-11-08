@@ -9,47 +9,112 @@
         </ion-item>
       </ion-toolbar>
     </ion-header>
-    <ion-content :fullscreen="true">
+    <ion-content fullscreen class="ion-padding">
 
-      <ion-title color="primary"><h2>Pflanzenpflege</h2></ion-title>
+      <ion-title color="primary"><h2>Meine Aufgaben</h2></ion-title>
+
+
+      <ion-fab vertical="bottom" horizontal="center" slot="fixed" class="ion-padding-bottom">
+
+        <ion-router-link href="/tabs/addPlant">
+          <ion-fab-button >
+          <ion-icon :icon="add"></ion-icon>
+        </ion-fab-button>
+        </ion-router-link>
+      </ion-fab>
+
 
       <ion-card>
-        <ion-card-header>
-          <ion-card-title>Aufgaben</ion-card-title>
-          <ion-card-subtitle>in 5 Tagen</ion-card-subtitle>
-        </ion-card-header>
-
         <ion-card-content>
           Grünlilie muss gegossen werden!
-        </ion-card-content>
-      </ion-card>
-      <ion-card>
-        <ion-card-header>
-          <ion-card-subtitle>in 10 Tagen</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-          Grünlilie muss gegossen werden!
-        </ion-card-content>
-      </ion-card>
-      <ion-card>
-        <ion-card-header>
-          <ion-card-subtitle>in 15 Tagen</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-          Grünlilie muss gegossen werden!
+          <ion-checkbox
+              slot="end">
+          </ion-checkbox>
         </ion-card-content>
       </ion-card>
 
-      <ion-icon :icon="leaf-outline"></ion-icon>
+      <ion-card>
+
+        <ion-card-content>
+          Bergpalme muss gegossen werden!
+          <ion-checkbox
+              slot="end">
+          </ion-checkbox>
+        </ion-card-content>
+
+      </ion-card>
+
+      <ion-card>
+        <ion-card-content>
+          Gefleckte Efeutute muss gegossen werden!
+          <ion-checkbox
+              slot="end">
+          </ion-checkbox>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-title color="primary"><h2>Meine Pflanzen</h2></ion-title>
+
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <ion-card>
+        <ion-card-content>
+          <img width="150" src="../img/Gruenlilie.jpg"/>
+          <ion-label>
+          Grünlilie
+          </ion-label>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <ion-col>
+      <ion-card>
+        <ion-card-content>
+          <img width="150" src="../img/Bergpalme.jpg"/>
+          <ion-label>
+            Bergpalme
+          </ion-label>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-card>
+        <ion-card-content>
+          <img width="150" src="../img/GefEfeutute.jpg"/>
+          <ion-label>
+            Gefleckte Efeutute
+          </ion-label>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <ion-col>
+
+    </ion-col>
+  </ion-row>
+
+
+</ion-grid>
+
     </ion-content>
   </ion-page>
 </template>
 
 <script lang="ts">
-import {IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, IonGrid, } from '@ionic/vue';
+import {IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, IonFab, IonFabButton } from '@ionic/vue';
+import { defineComponent,  } from 'vue';
+import { add } from 'ionicons/icons';
 
-export default {
+
+export default defineComponent({
   name: 'Tab1',
-  components: {IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonIcon}
-}
+  components: {IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonIcon, IonFab, IonFabButton},
+
+  setup(){
+    return{
+      add
+    }
+  }
+})
 </script>

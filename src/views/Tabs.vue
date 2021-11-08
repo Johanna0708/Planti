@@ -13,28 +13,22 @@
       <ion-router-outlet></ion-router-outlet>
       <ion-tab-bar slot="bottom">
         <ion-tab-button tab="tab1" href="/tabs/tab1">
-          <ion-icon :icon="water" />
-          <ion-label>Pflanzenpflege</ion-label>
-        </ion-tab-button>
-
-        <ion-tab-button tab="tab2" href="/tabs/tab2">
           <ion-icon :icon="leaf" />
           <ion-label>Meine Pflanzen</ion-label>
         </ion-tab-button>
-          
-        <ion-tab-button tab="tab3" href="/tabs/tab3">
+
+        <ion-tab-button tab="tab2" href="/tabs/tab2">
           <ion-icon :icon="search" />
           <ion-label>Pflanzen suchen</ion-label>
         </ion-tab-button>
 
-        <ion-tab-button tab="tab4" href="/tabs/tab4">
+        <ion-tab-button tab="tab3" href="/tabs/tab3">
           <ion-icon :icon="settings" />
           <ion-label>Einstellungen</ion-label>
         </ion-tab-button>
-        
-
       </ion-tab-bar>
     </ion-tabs>
+
   </ion-page>
 </template>
 
