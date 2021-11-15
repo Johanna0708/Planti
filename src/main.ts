@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
+import  VueGoogleMaps from '@fawmi/vue-google-maps'
 import App from './App.vue'
 import router from './router';
 
@@ -24,9 +25,14 @@ import '@ionic/vue/css/display.css';
 import './theme/variables.css';
 
 const app = createApp(App)
-  .use(IonicVue)
-  .use(router);
-  
+    .use(IonicVue)
+    .use(router)
+ app.use(VueGoogleMaps, {
+  load: {
+    key: 'AIzaSyCFJ5u63qtSsz_34EgRHkMtXIUSLY5BTAU',
+  },
+})
+
 router.isReady().then(() => {
   app.mount('#app');
 });

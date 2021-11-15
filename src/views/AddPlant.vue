@@ -28,11 +28,11 @@
         <ion-input placeholder="Enter Input"></ion-input>
       </ion-item>
 
-      <ion-router-link href="/tabs/tab1">
+      <ion-router-link href="/tabs/meinePflanzen">
       <ion-button>Speichern</ion-button>
       </ion-router-link>
 
-      <ion-router-link href="/tabs/tab1">
+      <ion-router-link href="/tabs/meinePflanzen">
       <ion-button>Abbrechen</ion-button>
       </ion-router-link>
 

@@ -35,11 +35,12 @@
           <ion-card-title>Karte</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          <p>Ihr Standort ist folgender:</p>
-
-          <ion-button @click="printCurrentPosition">
-            Aktuellen Standort anzeigen
-          </ion-button>
+          <GMapMap
+              :center="center"
+              :zoom="7"
+              map-type-id="terrain"
+              style="height: 800px; width: 100%;">
+          </GMapMap>
         </ion-card-content>
       </ion-card>
 
@@ -57,6 +58,12 @@ import { Geolocation } from '@capacitor/geolocation';
 export default defineComponent ({
   name: 'Tab3',
   components: {IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonButton},
+
+  data() {
+    return {
+      center: {lat: 51.093048, lng: 6.842120},
+    }
+  },
 
   setup() {
     const loc = ref<{

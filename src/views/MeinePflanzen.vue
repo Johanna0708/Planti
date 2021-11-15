@@ -18,8 +18,8 @@
 
         <ion-router-link href="/tabs/addPlant">
           <ion-fab-button >
-          <ion-icon :icon="add"></ion-icon>
-        </ion-fab-button>
+            <ion-icon :icon="add"></ion-icon>
+          </ion-fab-button>
         </ion-router-link>
       </ion-fab>
 
@@ -55,47 +55,54 @@
 
       <ion-title color="primary"><h2>Meine Pflanzen</h2></ion-title>
 
-<ion-grid>
-  <ion-row>
-    <ion-col>
-      <ion-card>
-        <ion-card-content>
-          <img width="150" src="../img/Gruenlilie.jpg"/>
-          <ion-label>
-          Grünlilie
-          </ion-label>
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
-    <ion-col>
-      <ion-card>
-        <ion-card-content>
-          <img width="150" src="../img/Bergpalme.jpg"/>
-          <ion-label>
-            Bergpalme
-          </ion-label>
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col>
-      <ion-card>
-        <ion-card-content>
-          <img width="150" src="../img/GefEfeutute.jpg"/>
-          <ion-label>
-            Gefleckte Efeutute
-          </ion-label>
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
-    <ion-col>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-card>
+              <ion-card-content>
+                <img height="150" src="../img/Gruenlilie.jpg"/>
+              </ion-card-content>
+              <ion-card-content>
+                <ion-label>
+                  <h2>Grünlilie</h2>
+                </ion-label>
+              </ion-card-content>
 
-    </ion-col>
-  </ion-row>
+            </ion-card>
+          </ion-col>
+          <ion-col>
+            <ion-card>
+              <ion-card-content>
+                <img height="150" src="../img/Bergpalme.jpg"/>
+              </ion-card-content>
+              <ion-card-content>
+                <ion-label>
+                  <h2>Bergpalme</h2>
+                </ion-label>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-card>
+              <ion-card-content>
+                <img height="150" src="../img/GefEfeutute.jpg"/>
+              </ion-card-content>
+              <ion-card-content>
+                <ion-label>
+                 <h2>Gefleckte Efeutute</h2>
+                </ion-label>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col>
+
+          </ion-col>
+        </ion-row>
 
 
-</ion-grid>
+      </ion-grid>
 
     </ion-content>
   </ion-page>
@@ -108,7 +115,7 @@ import { add } from 'ionicons/icons';
 
 
 export default defineComponent({
-  name: 'Tab1',
+  name: 'MeinePflanzen',
   components: {IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonIcon, IonFab, IonFabButton},
 
   setup(){
