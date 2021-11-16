@@ -35,6 +35,7 @@
 import { IonPage, IonHeader, IonToolbar, IonContent,IonList, IonThumbnail } from '@ionic/vue';
 import { leaf, search } from 'ionicons/icons';
 import {defineComponent, ref} from 'vue';
+import axios from "axios";
 import {Pflanzen} from "@/types/pflanzen";
 import{Sensor} from "@/types/sensor";
 
@@ -46,6 +47,16 @@ export default defineComponent ({
   data(){
     return{
       // pflanzen: null as Pflanzen
+    }
+  },
+
+  methods: {
+    loadNames() {
+      axios
+          .get("http://localhost:8080/students")
+          .then((response) => {
+            //this.firstName = response.data
+          });
     }
   },
 

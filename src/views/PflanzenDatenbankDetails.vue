@@ -11,6 +11,23 @@
     </ion-header>
 
     <ion-content fullscreen class="ion-padding">
+      <ion-list>
+        <ion-item>
+          <ion-label>Pflanzenname: </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>wissenschaftlicher Name: </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Schwierigkeitslevel: </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Standort: </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Merkmale: </ion-label>
+        </ion-item>
+      </ion-list>
 
 
       <ion-router-link href="/tabs/datenbank">
@@ -24,6 +41,7 @@
 import { IonPage, IonHeader, IonToolbar, IonContent,} from '@ionic/vue';
 import { leaf, search } from 'ionicons/icons';
 import {defineComponent, ref} from 'vue';
+import axios from "axios";
 import {Pflanzen} from "@/types/pflanzen";
 import{Sensor} from "@/types/sensor";
 
