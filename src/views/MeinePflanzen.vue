@@ -53,7 +53,7 @@
         </ion-card-content>
       </ion-card>
 
-      <ion-title color="primary"><h2>Meine Pflanzen</h2></ion-title>
+      <ion-title color="primary"><h2>Meine Pflanze</h2></ion-title>
 
       <ion-grid>
         <ion-row>

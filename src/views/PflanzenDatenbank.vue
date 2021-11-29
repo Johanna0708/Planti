@@ -14,19 +14,20 @@
 
       <ion-list>
         <ion-router-link href="/tabs/detailsPlant/">
-        <ion-item v-for="item in items" :key="item.src">
-          <ion-thumbnail slot="start">
-            <img src="../img/monstera.png"/>
-          </ion-thumbnail>
-
-          <ion-label>
-            {{item.text}}
-          </ion-label>
-
-        </ion-item>
+          <ion-item v-for="plant in plants" v-bind:key="plant.pid">
+            <ion-thumbnail slot="start">
+              <img src='{{plants.picture}}'>
+            </ion-thumbnail>
+            <ion-thumbnail>
+              <img src='https://media.dehner.de/new_ads_main/gefleckte-efeutute-pictus/8689127_PR_FS_001_ScindapsusPictusT12DehnerExpressHerzig.jpg'>
+            </ion-thumbnail>
+            <ion-label>
+              {{plant.name}}
+            </ion-label>
+          </ion-item>
         </ion-router-link>
       </ion-list>
-
+{{plants}}
     </ion-content>
   </ion-page>
 </template>
@@ -34,9 +35,9 @@
 <script lang="ts">
 import { IonPage, IonHeader, IonToolbar, IonContent,IonList, IonThumbnail } from '@ionic/vue';
 import { leaf, search } from 'ionicons/icons';
-import {defineComponent, ref} from 'vue';
+import {defineComponent} from 'vue';
 import axios from "axios";
-import {Pflanzen} from "@/types/pflanzen";
+import {Pflanze} from "@/types/pflanze";
 import{Sensor} from "@/types/sensor";
 
 
@@ -46,49 +47,25 @@ export default defineComponent ({
 
   data(){
     return{
-      // pflanzen: null as Pflanzen
+      //plant: null as Pflanze,
+      plants: null as any,
     }
+  },
+  created() {
+    axios.get('http://localhost:8080/planti/show')
+        .then(response => {
+          this.plants = response.data
+        })
   },
 
-  methods: {
-    loadNames() {
-      axios
-          .get("http://localhost:8080/students")
-          .then((response) => {
-            //this.firstName = response.data
-          });
-    }
-  },
 
   setup() {
-    const items = [{
-      'text': 'Pflanze 1',
-      'src': '../img/monstera.png',
-      'id' : '1'
-    },
-      { 'text': 'Pflanze 2',
-        'src': '../img/monstera.png',
-        'id' : '2'
-      },
-      {
-        'text': 'Pflanze 3',
-        'src': '../img/planze2.png',
-        'id' : '3'
-      },
-      {
-        'text': 'Pflanze 4',
-        'src': '../img/monstera.png',
-        'id' : '4'
-      }];
-
-
-
     return {
       leaf,
       search,
-      items,
     }
-  }
+  },
+
 })
 
 

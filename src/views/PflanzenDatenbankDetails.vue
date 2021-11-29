@@ -13,7 +13,7 @@
     <ion-content fullscreen class="ion-padding">
       <ion-list>
         <ion-item>
-          <ion-label>Pflanzenname: </ion-label>
+          <ion-label>Pflanzenname: {{plants.name}}</ion-label>
         </ion-item>
         <ion-item>
           <ion-label>wissenschaftlicher Name: </ion-label>
@@ -42,7 +42,7 @@ import { IonPage, IonHeader, IonToolbar, IonContent,} from '@ionic/vue';
 import { leaf, search } from 'ionicons/icons';
 import {defineComponent, ref} from 'vue';
 import axios from "axios";
-import {Pflanzen} from "@/types/pflanzen";
+import {Pflanze} from "@/types/pflanze";
 import{Sensor} from "@/types/sensor";
 
 
@@ -50,6 +50,19 @@ export default defineComponent ({
   name: 'PflanzenDatenbankDetails',
   components: { IonHeader, IonToolbar, IonContent, IonPage,},
 
+  data: function () {
+    return {
+      plants: null as unknown as Pflanze,
+
+    }
+  },
+
+  created() {
+    axios.get('http://localhost:8080/planti/show')
+        .then(response => {
+          this.plants = response.data
+        })
+  },
   setup() {
 
     return {
