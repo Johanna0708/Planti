@@ -22,12 +22,11 @@
               <img src='https://media.dehner.de/new_ads_main/gefleckte-efeutute-pictus/8689127_PR_FS_001_ScindapsusPictusT12DehnerExpressHerzig.jpg'>
             </ion-thumbnail>
             <ion-label>
-              {{plant.name}}
+              {{plants.name}}
             </ion-label>
           </ion-item>
         </ion-router-link>
       </ion-list>
-{{plants}}
     </ion-content>
   </ion-page>
 </template>
@@ -47,8 +46,8 @@ export default defineComponent ({
 
   data(){
     return{
-      //plant: null as Pflanze,
-      plants: null as any,
+      plants: null as unknown as Pflanze,
+
     }
   },
   created() {

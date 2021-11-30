@@ -13,7 +13,7 @@
     <ion-content fullscreen class="ion-padding">
       <ion-list>
         <ion-item>
-          <ion-label>Pflanzenname: {{plants.name}}</ion-label>
+          <ion-label>Pflanzenname: {{plant}}</ion-label>
         </ion-item>
         <ion-item>
           <ion-label>wissenschaftlicher Name: </ion-label>
@@ -52,7 +52,7 @@ export default defineComponent ({
 
   data: function () {
     return {
-      plants: null as unknown as Pflanze,
+      plant: null as unknown as Pflanze,
 
     }
   },
@@ -60,7 +60,7 @@ export default defineComponent ({
   created() {
     axios.get('http://localhost:8080/planti/show')
         .then(response => {
-          this.plants = response.data
+          this.plant = response.data
         })
   },
   setup() {
