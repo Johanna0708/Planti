@@ -1,5 +1,4 @@
 import { createApp } from 'vue'
-import  VueGoogleMaps from '@fawmi/vue-google-maps'
 import App from './App.vue'
 import router from './router';
 
@@ -27,11 +26,6 @@ import './theme/variables.css';
 const app = createApp(App)
     .use(IonicVue)
     .use(router)
- app.use(VueGoogleMaps, {
-  load: {
-    key: 'API_Key',
-  },
-})
 
 router.isReady().then(() => {
   app.mount('#app');

@@ -11,42 +11,43 @@
     </ion-header>
 
     <ion-content fullscreen class="ion-padding">
-      <ion-title color="primary"><h2>Einstellungen</h2></ion-title>
+      <ion-title color="primary"><h2>Impressum</h2></ion-title>
 
       <ion-card>
         <ion-card-header>
-          <ion-card-title>Geolocation</ion-card-title>
+          <ion-card-title>Anschrift</ion-card-title>
+          <ion-card-subtitle>Planti GmbH</ion-card-subtitle>
         </ion-card-header>
         <ion-card-content>
-          <p>Ihr Standort ist folgender:</p>
-          <p>Breitengrad: {{ loc.lat }}</p>
-          <p>Längengrad: {{ loc.long }}</p>
-
-          <ion-button @click="getCurrentPosition">
-            Aktuellen Standort abrufen
-          </ion-button>
+          Straße: Magdeburger Straße 50 <br/>
+          Ort: 14770 Brandenburg an der Havel
         </ion-card-content>
-      </ion-card>
 
-
-      <ion-card>
         <ion-card-header>
-          <ion-card-title>Karte</ion-card-title>
+          <ion-card-title>Unser Büro befindet sich hier:</ion-card-title>
         </ion-card-header>
-        <ion-card-content style="position: relative; height: 300px">
-
-            <GMapMap :center="center"
-                     :options="options"
-                     :zoom="10" map-type-id="terrain" style="width: 50px; height: 50px">
-              <GMapCluster :zoomOnClick="true">
-                <GMapMarker :key="index" v-for="(m, index) in markers" :position="m.position" :clickable="true" :draggable="true"
-                            @click="center = m.position" />
-              </GMapCluster>
-            </GMapMap>
-
-
+        <ion-card-content>
+          <g-map
+              :disableUI="false"
+              :zoom="12"
+              mapType="roadmap"
+              :center="{ lat: 52.41163319339472, lng: 12.539792573722497 }"
+              :markers="markers">
+          </g-map>
         </ion-card-content>
+        <ion-card-header>
+          <ion-card-title>Kontaktdaten</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          Tel.: +49 3381 355-0 <br/>
+          Fax: +49 3381 355-199 <br/>
+          E-Mail: info(at)th-brandenburg.de
+        </ion-card-content>
+
+
       </ion-card>
+
+
 
       <ion-button expand="block" fill="outline">Abmelden</ion-button>
 
@@ -57,44 +58,23 @@
 <script lang="ts">
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonButton } from '@ionic/vue';
 import { defineComponent, ref } from 'vue';
-import { Geolocation } from '@capacitor/geolocation';
-import {GMapMap} from '@fawmi/vue-google-maps';
+import GMap from './GMap.vue';
+
 
 export default defineComponent ({
   name: 'Tab3',
-  components: {IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonButton, GMapMap},
-
-  data() {
-    return {
-      center: {lat: 52.408283, lng: 12.541222},
-      markers: [
-        {
-          position: {
-            lat: 52.408283, lng: 12.541222},
-        }
-      ]
-    }
-  },
+  components: {IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonButton, GMap},
 
   setup() {
-    const loc = ref<{
-      lat: null | number;
-      long: null | number;
-    }>({
-      lat: null,
-      long: null,
-    });
 
-    const getCurrentPosition = async () => {
-      const pos = await Geolocation.getCurrentPosition();
-      loc.value = {
-        lat: pos.coords.latitude,
-        long: pos.coords.longitude,
-      };
-    };
+    const markers = [{
+      lat: 52.41163319339472,
+      lng: 12.539792573722497,
+      title: "Unser Büro"
+    },
+    ]
 
-    return { getCurrentPosition,
-      loc};
+    return { markers};
   },
 })
 
