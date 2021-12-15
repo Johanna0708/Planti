@@ -11,21 +11,36 @@
     </ion-header>
 
     <ion-content fullscreen class="ion-padding">
-      <ion-list>
-        <ion-item>
-          <ion-label>Pflanzenname: {{plant}}</ion-label>
+      <ion-list v-if="plant">
+        <ion-item slot="start">
+          <ion-img style="height: 200px" :src='plant.picture'/>
         </ion-item>
         <ion-item>
-          <ion-label>wissenschaftlicher Name: </ion-label>
+          <ion-label>Pflanzenname: {{plant.name}}</ion-label>
+        </ion-item>
+        <ion-item >
+          <ion-label>wissenschaftlicher Name: {{plant.wissName}}</ion-label>
+        </ion-item>
+        <ion-item v-if="plant.schwierigkeit==0">
+          <ion-label>Schwierigkeitslevel: einfach</ion-label>
+        </ion-item>
+        <ion-item v-if="plant.schwierigkeit==1">
+          <ion-label>Schwierigkeitslevel: mittel</ion-label>
+        </ion-item>
+        <ion-item v-if="plant.schwierigkeit==2">
+          <ion-label>Schwierigkeitslevel: schwer</ion-label>
+        </ion-item>
+        <ion-item v-if="plant.standort==0">
+          <ion-label>Standort: Schatten</ion-label>
+        </ion-item>
+        <ion-item v-if="plant.standort==1">
+          <ion-label>Standort: Halbschatten</ion-label>
+        </ion-item>
+        <ion-item v-if="plant.standort==2">
+          <ion-label>Standort: Sonne</ion-label>
         </ion-item>
         <ion-item>
-          <ion-label>Schwierigkeitslevel: </ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-label>Standort: </ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-label>Merkmale: </ion-label>
+          <ion-label>Merkmale: {{plant.merkmale}}</ion-label>
         </ion-item>
       </ion-list>
 
@@ -52,19 +67,20 @@ export default defineComponent ({
 
   data: function () {
     return {
-      plant: null as unknown as Pflanze,
-
+     plant: null as unknown as Pflanze,
     }
   },
 
+
   created() {
-    axios.get('http://localhost:8080/planti/show')
+    const urlID = this.$route.params.pid
+    axios.get('http://localhost:8080/planti/show?id='+urlID)
         .then(response => {
           this.plant = response.data
+          console.log(this.plant)
         })
   },
   setup() {
-
     return {
       leaf,
       search,

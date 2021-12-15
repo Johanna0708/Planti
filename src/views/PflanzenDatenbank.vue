@@ -12,27 +12,27 @@
 
     <ion-content fullscreen class="ion-padding">
 
-      <ion-list>
-        <ion-router-link href="/tabs/detailsPlant/">
-          <ion-item v-for="plant in plants" v-bind:key="plant.pid">
-            <ion-thumbnail slot="start">
-              <img src='{{plants.picture}}'>
-            </ion-thumbnail>
-            <ion-thumbnail>
-              <img src='https://media.dehner.de/new_ads_main/gefleckte-efeutute-pictus/8689127_PR_FS_001_ScindapsusPictusT12DehnerExpressHerzig.jpg'>
-            </ion-thumbnail>
-            <ion-label>
-              {{plants.name}}
-            </ion-label>
-          </ion-item>
-        </ion-router-link>
+      <ion-list v-for="item in plants"
+                :router-link="`/tabs/datenbank/${item.pid}`"
+                v-bind:key="item.pid">
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <ion-img :src='item.picture'/>
+          </ion-thumbnail>
+          <ion-label>
+            {{item.name}}
+          </ion-label>
+        </ion-item>
       </ion-list>
+
+
+
     </ion-content>
   </ion-page>
 </template>
 
 <script lang="ts">
-import { IonPage, IonHeader, IonToolbar, IonContent,IonList, IonThumbnail } from '@ionic/vue';
+import { IonPage, IonHeader, IonToolbar, IonContent,IonList, IonThumbnail, IonImg } from '@ionic/vue';
 import { leaf, search } from 'ionicons/icons';
 import {defineComponent} from 'vue';
 import axios from "axios";
@@ -42,16 +42,16 @@ import{Sensor} from "@/types/sensor";
 
 export default defineComponent ({
   name: 'PflanzenDatenbank',
-  components: { IonHeader, IonToolbar, IonContent, IonPage, IonList, IonThumbnail  },
+  components: { IonHeader, IonToolbar, IonContent, IonPage, IonList, IonThumbnail, IonImg },
 
   data(){
     return{
-      plants: null as unknown as Pflanze,
+      plants: null as unknown as Pflanze[],
 
     }
   },
   created() {
-    axios.get('http://localhost:8080/planti/show')
+    axios.get('http://localhost:8080/planti/showall')
         .then(response => {
           this.plants = response.data
         })
