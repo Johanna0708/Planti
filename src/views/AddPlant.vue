@@ -14,14 +14,15 @@
 
       <ion-title color="primary"><h2>Pflanze hinzufügen</h2></ion-title>
 
+      <ion-list>
       <ion-item>
         <ion-label>Pflanzenart</ion-label>
         <ion-select placeholder="Select One">
-          <ion-select-option value="1">Grünlilie</ion-select-option>
-          <ion-select-option value="2">Bergpalme</ion-select-option>
-          <ion-select-option value="3">Gefleckte Efeutute</ion-select-option>
+          <ion-select-option v-for="item in plants"
+                             v-bind:key="item.pid" value="item.pid">{{ item.name }}</ion-select-option>
         </ion-select>
       </ion-item>
+      </ion-list>
 
       <ion-item>
         <ion-label>Sensor</ion-label>
@@ -44,13 +45,30 @@
 
 
 <script lang="ts">
-import { IonPage, IonHeader, IonToolbar, IonContent } from '@ionic/vue';
+import { IonPage, IonHeader, IonToolbar, IonContent, IonList } from '@ionic/vue';
 import {defineComponent} from 'vue';
+import axios from "axios";
+import {Pflanze} from "@/types/pflanze";
 
 
 export default defineComponent ({
   name: 'AddPlant',
-  components: { IonHeader, IonToolbar, IonContent, IonPage},
+  components: { IonHeader, IonToolbar, IonContent, IonPage, IonList},
+
+  data(){
+    return{
+      plants: null as unknown as Pflanze[],
+
+    }
+  },
+  created() {
+    axios.get('http://localhost:8080/planti/showall')
+        .then(response => {
+          this.plants = response.data
+        })
+  },
+
+
 })
 
 </script>
