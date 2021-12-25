@@ -11,39 +11,75 @@
     </ion-header>
 
     <ion-content fullscreen class="ion-padding">
-      <ion-list v-if="plant">
-        <ion-item slot="start">
-          <ion-img style="height: 200px" :src='plant.picture'/>
-        </ion-item>
-        <ion-item>
-          <ion-label>Pflanzenname: {{plant.name}}</ion-label>
-        </ion-item>
-        <ion-item >
-          <ion-label>wissenschaftlicher Name: {{plant.wissName}}</ion-label>
-        </ion-item>
-        <ion-item v-if="plant.schwierigkeit==0">
-          <ion-label>Schwierigkeitslevel: einfach</ion-label>
-        </ion-item>
-        <ion-item v-if="plant.schwierigkeit==1">
-          <ion-label>Schwierigkeitslevel: mittel</ion-label>
-        </ion-item>
-        <ion-item v-if="plant.schwierigkeit==2">
-          <ion-label>Schwierigkeitslevel: schwer</ion-label>
-        </ion-item>
-        <ion-item v-if="plant.standort==0">
-          <ion-label>Standort: Schatten</ion-label>
-        </ion-item>
-        <ion-item v-if="plant.standort==1">
-          <ion-label>Standort: Halbschatten</ion-label>
-        </ion-item>
-        <ion-item v-if="plant.standort==2">
-          <ion-label>Standort: Sonne</ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-label>Merkmale: {{plant.merkmale}}</ion-label>
-        </ion-item>
-      </ion-list>
 
+      <ion-card v-if="plant">
+
+        <ion-item lines="none">
+          <ion-label class="ion-text-wrap">
+            <ion-text color="primary">
+              <h1>{{plant.name}}</h1>
+            </ion-text>
+            <p>{{plant.wissName}}</p>
+          </ion-label>
+        </ion-item>
+
+        <ion-grid>
+          <ion-row >
+            <ion-col>
+              <ion-item v-if="plant">
+                <ion-img style="height: 300px" :src='plant.picture'/>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item v-if="plant.schwierigkeit==0">
+                <ion-label>Schwierigkeit:
+                  <ion-icon :icon="starOutline" />
+                </ion-label>
+
+              </ion-item>
+              <ion-item v-if="plant.schwierigkeit==1">
+                <ion-label>Schwierigkeit:
+                  <ion-icon :icon="starOutline" />
+                  <ion-icon :icon="starOutline" />
+                </ion-label>
+              </ion-item>
+
+              <ion-item v-if="plant.schwierigkeit==2">
+                <ion-label>Schwierigkeit:
+                  <ion-icon :icon="starOutline" />
+                  <ion-icon :icon="starOutline" />
+                  <ion-icon :icon="starOutline" />
+                </ion-label>
+              </ion-item>
+
+              <ion-item v-if="plant.standort==0">
+                <ion-label>Standort:
+                  <ion-icon :icon="cloudOutline" />
+                </ion-label>
+
+              </ion-item>
+              <ion-item v-if="plant.standort==1">
+                <ion-label>Standort:
+                  <ion-icon :icon="partlySunnyOutline" />
+                </ion-label>
+              </ion-item>
+
+              <ion-item v-if="plant.standort==2">
+                <ion-label>Standort:
+                  <ion-icon :icon="sunnyOutline" />
+                </ion-label>
+              </ion-item>
+
+              <ion-item v-if="plant.merkmale=='giftig'">
+                <ion-label>Giftig
+                <ion-icon :icon="skullOutline" />
+                </ion-label>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card>
 
       <ion-router-link href="/tabs/datenbank">
         <ion-button>Zurück</ion-button>
@@ -53,21 +89,20 @@
 </template>
 
 <script lang="ts">
-import { IonPage, IonHeader, IonToolbar, IonContent,} from '@ionic/vue';
-import { leaf, search } from 'ionicons/icons';
+import { IonPage, IonHeader, IonToolbar, IonContent, IonIcon} from '@ionic/vue';
+import { skullOutline, starOutline, sunnyOutline, partlySunnyOutline, cloudOutline } from 'ionicons/icons';
 import {defineComponent, ref} from 'vue';
 import axios from "axios";
 import {Pflanze} from "@/types/pflanze";
-import{Sensor} from "@/types/sensor";
 
 
 export default defineComponent ({
   name: 'PflanzenDatenbankDetails',
-  components: { IonHeader, IonToolbar, IonContent, IonPage,},
+  components: { IonHeader, IonToolbar, IonContent, IonPage, IonIcon},
 
   data: function () {
     return {
-     plant: null as unknown as Pflanze,
+      plant: null as unknown as Pflanze,
     }
   },
 
@@ -82,8 +117,11 @@ export default defineComponent ({
   },
   setup() {
     return {
-      leaf,
-      search,
+      skullOutline,
+      starOutline,
+      sunnyOutline,
+      partlySunnyOutline,
+      cloudOutline,
     }
   }
 })
