@@ -14,7 +14,7 @@
       <ion-title color="primary"><h2>Meine Aufgaben</h2></ion-title>
 
 
-      <ion-fab vertical="bottom" horizontal="center" slot="fixed" class="ion-padding-bottom">
+      <ion-fab vertical="bottom" horizontal="end" slot="fixed" class="ion-padding-bottom">
 
         <ion-router-link href="/tabs/addPlant">
           <ion-fab-button >
