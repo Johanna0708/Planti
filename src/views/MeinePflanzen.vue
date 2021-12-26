@@ -12,7 +12,7 @@
     <ion-content fullscreen class="ion-padding">
 
       <ion-title color="primary"><h2>Meine Aufgaben</h2></ion-title>
-
+      <!--      {{ $t('message') }} -->
 
       <ion-fab vertical="bottom" horizontal="end" slot="fixed" class="ion-padding-bottom">
 
@@ -26,6 +26,7 @@
 
       <ion-card>
         <ion-card-content>
+
           Grünlilie muss gegossen werden!
           <ion-checkbox
               slot="end">
@@ -53,7 +54,7 @@
         </ion-card-content>
       </ion-card>
 
-      <ion-title color="primary"><h2>Meine Pflanze</h2></ion-title>
+       <ion-title color="primary"><h2>Meine Pflanze</h2></ion-title>
 
       <ion-grid>
         <ion-row>
@@ -112,7 +113,6 @@
 import {IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, IonFab, IonFabButton } from '@ionic/vue';
 import { defineComponent,  } from 'vue';
 import { add } from 'ionicons/icons';
-
 
 export default defineComponent({
   name: 'MeinePflanzen',
