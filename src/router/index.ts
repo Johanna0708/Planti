@@ -1,11 +1,13 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
 import Tabs from '../views/Tabs.vue'
+//import i18n from '../i18n'
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/tabs/meinePflanzen'
+    redirect: '/:lang/tabs/meinePflanzen'
+    //redirect: `/${i18n.locale}`
   },
   {
     path: '/:lang/tabs/',
