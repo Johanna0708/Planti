@@ -8,12 +8,12 @@ const routes: Array<RouteRecordRaw> = [
     redirect: '/tabs/meinePflanzen'
   },
   {
-    path: '/tabs/',
+    path: '/:lang/tabs/',
     component: Tabs,
     children: [
       {
         path: '',
-        redirect: '/tabs/meinePflanzen'
+        redirect: '/:lang/tabs/meinePflanzen'
       },
       {
         path: 'meinePflanzen',
