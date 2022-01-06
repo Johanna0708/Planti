@@ -11,20 +11,20 @@
     </ion-header>
 
     <ion-content fullscreen class="ion-padding">
-      <ion-title color="primary"><h2>Impressum</h2></ion-title>
+      <ion-title color="primary"><h2>{{ $t('page3.title1') }}</h2></ion-title>
 
       <ion-card>
         <ion-card-header>
-          <ion-card-title>Anschrift</ion-card-title>
+          <ion-card-title>{{ $t('page3.subtitle1') }}</ion-card-title>
           <ion-card-subtitle>Planti GmbH</ion-card-subtitle>
         </ion-card-header>
         <ion-card-content>
-          Straße: Magdeburger Straße 50 <br/>
-          Ort: 14770 Brandenburg an der Havel
+          {{ $t('page3.street') }} <br/>
+          {{ $t('page3.place') }}
         </ion-card-content>
 
         <ion-card-header>
-          <ion-card-title>Unser Büro befindet sich hier:</ion-card-title>
+          <ion-card-title>{{ $t('page3.subtitle2') }}</ion-card-title>
         </ion-card-header>
         <ion-card-content>
           <g-map
@@ -36,7 +36,7 @@
           </g-map>
         </ion-card-content>
         <ion-card-header>
-          <ion-card-title>Kontaktdaten</ion-card-title>
+          <ion-card-title>{{ $t('page3.subtitle3') }}</ion-card-title>
         </ion-card-header>
         <ion-card-content>
           Tel.: +49 3381 355-0 <br/>
@@ -49,7 +49,7 @@
 
 
 
-      <ion-button expand="block" fill="outline">Abmelden</ion-button>
+      <ion-button expand="block" fill="outline">{{ $t('page3.button') }}</ion-button>
 
     </ion-content>
   </ion-page>

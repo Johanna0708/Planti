@@ -11,8 +11,7 @@
     </ion-header>
     <ion-content fullscreen class="ion-padding">
 
-      <ion-title color="primary"><h2>Meine Aufgaben</h2></ion-title>
-      <!--      {{ $t('message') }} -->
+      <ion-title color="primary"><h2>{{ $t('page1.title1') }} </h2></ion-title>
 
       <ion-fab vertical="bottom" horizontal="end" slot="fixed" class="ion-padding-bottom">
 
@@ -54,7 +53,7 @@
         </ion-card-content>
       </ion-card>
 
-       <ion-title color="primary"><h2>Meine Pflanze</h2></ion-title>
+       <ion-title color="primary"><h2>{{ $t('page1.title2') }}</h2></ion-title>
 
       <ion-grid>
         <ion-row>

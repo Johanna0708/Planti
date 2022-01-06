@@ -6,17 +6,17 @@
       <ion-tab-bar slot="bottom">
         <ion-tab-button tab="meinePflanzen" href="/tabs/meinePflanzen">
           <ion-icon :icon="leaf" />
-          <ion-label>Meine Pflanze</ion-label>
+          <ion-label>{{$t('tabs.one')}}</ion-label>
         </ion-tab-button>
 
         <ion-tab-button tab="datenbank" href="/tabs/datenbank">
           <ion-icon :icon="search" />
-          <ion-label>Pflanze suchen</ion-label>
+          <ion-label>{{$t('tabs.two')}}</ion-label>
         </ion-tab-button>
 
         <ion-tab-button tab="tab3" href="/tabs/tab3">
           <ion-icon :icon="settings" />
-          <ion-label>Einstellungen</ion-label>
+          <ion-label>{{$t('tabs.three')}}</ion-label>
         </ion-tab-button>
       </ion-tab-bar>
     </ion-tabs>
@@ -40,7 +40,7 @@ export default defineComponent({
       settings,
       search,
       water,
-       }
+    }
   }
 });
 
