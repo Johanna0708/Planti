@@ -11,6 +11,11 @@
     </ion-header>
     <ion-content fullscreen class="ion-padding">
 
+
+      <!--<language-switcher/>-->
+
+
+
       <ion-title color="primary"><h2>{{ $t('page1.title1') }} </h2></ion-title>
 
       <ion-fab vertical="bottom" horizontal="end" slot="fixed" class="ion-padding-bottom">
@@ -112,6 +117,7 @@
 import {IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, IonFab, IonFabButton } from '@ionic/vue';
 import { defineComponent,  } from 'vue';
 import { add } from 'ionicons/icons';
+// import LanguageSwitcher from "@/components/LanguageSwitcher.vue";
 
 export default defineComponent({
   name: 'MeinePflanzen',

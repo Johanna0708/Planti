@@ -10,6 +10,7 @@
         </ion-tab-button>
 
         <ion-tab-button tab="datenbank" href="/:lang/tabs/datenbank">
+         <!-- <ion-tab-button tab="datenbank" href="/${$i18n.locale}/tabs/datenbank"> -->
           <ion-icon :icon="search" />
           <ion-label>{{$t('tabs.two')}}</ion-label>
         </ion-tab-button>
