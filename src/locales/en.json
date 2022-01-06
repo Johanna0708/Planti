@@ -1,3 +1,21 @@
 {
-  "message": "Hello i18n !!"
+  "message": "Hello i18n !!",
+  "tabs": {
+    "one": "My plants",
+    "two": "Plant database",
+    "three": "Settings"
+  },
+  "page1": {
+    "title1": "My tasks",
+    "title2": "My plants"
+  },
+  "page3": {
+    "title1": "Imprint",
+    "subtitle1": "Address",
+    "street": "Street: Magdeburger Straße 50",
+    "place": "Place: 14770 Brandenburg an der Havel",
+    "subtitle2": "Our office is here:",
+    "subtitle3": "Contact details",
+    "button": "LOGOUT"
+  }
 }

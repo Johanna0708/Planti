@@ -1,3 +1,21 @@
 {
-  "message": "Hallo i18n !!"
+  "message": "Hallo i18n !!",
+  "tabs": {
+    "one": "Meine Pflanzen",
+    "two": "Pflanze suchen",
+    "three": "Einstellungen"
+  },
+  "page1": {
+    "title1": "Meine Aufgaben",
+    "title2": "Meine Pflanzen"
+  },
+  "page3": {
+    "title1": "Impressum",
+    "subtitle1": "Anschrift",
+    "street": "Straße: Magdeburger Straße 50",
+    "place": "Ort: 14770 Brandenburg an der Havel",
+    "subtitle2": "Unser Büro befindet sich hier:",
+    "subtitle3": "Kontaktdaten",
+    "button": "ABMELDEN"
+  }
 }
