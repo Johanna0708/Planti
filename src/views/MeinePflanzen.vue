@@ -20,7 +20,7 @@
 
       <ion-fab vertical="bottom" horizontal="end" slot="fixed" class="ion-padding-bottom">
 
-        <ion-router-link href="/tabs/addPlant">
+        <ion-router-link href="/:link/tabs/addPlant">
           <ion-fab-button >
             <ion-icon :icon="add"></ion-icon>
           </ion-fab-button>
@@ -117,7 +117,7 @@
 import {IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, IonFab, IonFabButton } from '@ionic/vue';
 import { defineComponent,  } from 'vue';
 import { add } from 'ionicons/icons';
-// import LanguageSwitcher from "@/components/LanguageSwitcher.vue";
+//import LanguageSwitcher from "@/components/LanguageSwitcher.vue";
 
 export default defineComponent({
   name: 'MeinePflanzen',

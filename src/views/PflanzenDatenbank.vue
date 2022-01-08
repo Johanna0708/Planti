@@ -13,7 +13,7 @@
     <ion-content fullscreen class="ion-padding">
 
       <ion-list v-for="item in plants"
-                :router-link="`/tabs/datenbank/${item.pid}`"
+                :router-link="`/:lang/tabs/datenbank/${item.pid}`"
                 v-bind:key="item.pid">
         <ion-item>
           <ion-thumbnail slot="start">
@@ -37,8 +37,6 @@ import { leaf, search } from 'ionicons/icons';
 import {defineComponent} from 'vue';
 import axios from "axios";
 import {Pflanze} from "@/types/pflanze";
-import{Sensor} from "@/types/sensor";
-
 
 export default defineComponent ({
   name: 'PflanzenDatenbank',

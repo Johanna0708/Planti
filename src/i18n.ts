@@ -20,7 +20,7 @@ function loadLocaleMessages(): LocaleMessages<VueMessageType> {
 }
 
 export default createI18n({
-  locale: 'en',
+  locale: 'de',
   fallbackLocale: 'en',
   messages: loadLocaleMessages()
 })
