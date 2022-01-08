@@ -109,6 +109,13 @@
 
       </ion-grid>
 
+      <vue-highcharts
+          type="stockChart"
+          :options="chartOptions"
+          :redrawOnUpdate="true"
+          :oneToOneUpdate="false"
+          :animateOnUpdate="true"
+          @updated="onUpdated"/>
     </ion-content>
   </ion-page>
 </template>
@@ -117,15 +124,45 @@
 import {IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, IonFab, IonFabButton } from '@ionic/vue';
 import { defineComponent,  } from 'vue';
 import { add } from 'ionicons/icons';
+import VueHighcharts from 'vue3-highcharts';
+import HighCharts from 'highcharts';
+import StockCharts from 'highcharts/modules/stock';
 //import LanguageSwitcher from "@/components/LanguageSwitcher.vue";
+
+StockCharts(HighCharts);
+
 
 export default defineComponent({
   name: 'MeinePflanzen',
-  components: {IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonIcon, IonFab, IonFabButton},
+  components: {IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonIcon, IonFab, IonFabButton, VueHighcharts},
 
   setup(){
+    const chartOptions = {
+      rangeSelector: {
+        selected: 1,
+      },
+
+      title: {
+        text: 'Bewässerungsverlauf',
+      },
+      series: [
+        {
+          name: 'Linie 1',
+          data: [
+            [1635161400000, 55.2],
+            [1635247800000, 55.55],
+            [1635420600000, 55.1],
+            [1635593400000, 56.24],
+            [1635769800000, 56.44],
+            [1635856200000, 56.81],
+            [1635942600000, 57.32],
+            [1636029000000, 58.02],
+            [1636201800000, 57]],
+        },
+      ],
+    };
     return{
-      add
+      add, chartOptions
     }
   }
 })
