@@ -48,8 +48,9 @@
       </ion-card>
 
 
-
+      <ion-router-link href="/:link/tabs/login">
       <ion-button expand="block" fill="outline">{{ $t('page3.button') }}</ion-button>
+      </ion-router-link>
 
     </ion-content>
   </ion-page>

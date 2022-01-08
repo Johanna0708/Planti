@@ -37,6 +37,14 @@ const routes: Array<RouteRecordRaw> = [
         path: 'addPlant',
         component: () => import('@/views/AddPlant.vue')
       },
+      {
+        path: 'login',
+        component: () => import('@/views/Login.vue')
+      },
+      {
+        path: 'reg',
+        component: () => import('@/views/Registration.vue')
+      },
     ]
   }
 ]

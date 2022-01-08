@@ -16,32 +16,26 @@
 
 
       <ion-item>
-
-        <ion-item>
           <ion-label>Pflanzenart</ion-label>
           <ion-select placeholder="Select One">
             <ion-select-option v-for="item in plants"
                                v-bind:key="item.pid">{{ item.name }}</ion-select-option>
           </ion-select>
-        </ion-item>
-
-
+      </ion-item>
       <ion-item>
         <ion-label>Sensor</ion-label>
         <ion-input placeholder="Enter Input"></ion-input>
       </ion-item>
+      <ion-item>
 
       <ion-router-link href="/:link/tabs/meinePflanzen">
         <ion-button @click="sendData('save')">Speichern</ion-button>
       </ion-router-link>
-      </ion-item>
-
-
-
 
       <ion-router-link href="/:link/tabs/meinePflanzen">
         <ion-button>Abbrechen</ion-button>
       </ion-router-link>
+      </ion-item>
 
 
     </ion-content>

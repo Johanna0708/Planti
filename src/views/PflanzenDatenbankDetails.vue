@@ -33,20 +33,20 @@
 
             <ion-col>
               <ion-item v-if="plant.schwierigkeit==0">
-                <ion-label>Schwierigkeit:
+                <ion-label>{{ $t('databaseDetails.difficulty') }}:
                   <ion-icon :icon="starOutline" />
                 </ion-label>
 
               </ion-item>
               <ion-item v-if="plant.schwierigkeit==1">
-                <ion-label>Schwierigkeit:
+                <ion-label>{{ $t('databaseDetails.difficulty') }}:
                   <ion-icon :icon="starOutline" />
                   <ion-icon :icon="starOutline" />
                 </ion-label>
               </ion-item>
 
               <ion-item v-if="plant.schwierigkeit==2">
-                <ion-label>Schwierigkeit:
+                <ion-label>{{ $t('databaseDetails.difficulty') }}:
                   <ion-icon :icon="starOutline" />
                   <ion-icon :icon="starOutline" />
                   <ion-icon :icon="starOutline" />
@@ -54,25 +54,25 @@
               </ion-item>
 
               <ion-item v-if="plant.standort==0">
-                <ion-label>Standort:
+                <ion-label>{{ $t('databaseDetails.location') }}:
                   <ion-icon :icon="cloudOutline" />
                 </ion-label>
 
               </ion-item>
               <ion-item v-if="plant.standort==1">
-                <ion-label>Standort:
+                <ion-label>{{ $t('databaseDetails.location') }}:
                   <ion-icon :icon="partlySunnyOutline" />
                 </ion-label>
               </ion-item>
 
               <ion-item v-if="plant.standort==2">
-                <ion-label>Standort:
+                <ion-label>{{ $t('databaseDetails.location') }}:
                   <ion-icon :icon="sunnyOutline" />
                 </ion-label>
               </ion-item>
 
               <ion-item v-if="plant.merkmale=='giftig'">
-                <ion-label>Giftig
+                <ion-label>{{ $t('databaseDetails.poisonous') }}:
                 <ion-icon :icon="skullOutline" />
                 </ion-label>
               </ion-item>
@@ -82,7 +82,7 @@
       </ion-card>
 
       <ion-router-link href="/:lang/tabs/datenbank">
-        <ion-button>Zurück</ion-button>
+        <ion-button>{{ $t('databaseDetails.button') }}</ion-button>
       </ion-router-link>
     </ion-content>
   </ion-page>

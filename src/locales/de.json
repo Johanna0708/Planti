@@ -9,6 +9,15 @@
     "title1": "Meine Aufgaben",
     "title2": "Meine Pflanzen"
   },
+  "plants": "item.name",
+
+  "databaseDetails": {
+    "difficulty": "Schwierigkeit",
+    "location": "Standort",
+    "poisonous": "Giftig",
+    "button": "Zurück"
+  },
+
   "page3": {
     "title1": "Impressum",
     "subtitle1": "Anschrift",
@@ -16,6 +25,6 @@
     "place": "Ort: 14770 Brandenburg an der Havel",
     "subtitle2": "Unser Büro befindet sich hier:",
     "subtitle3": "Kontaktdaten",
-    "button": "ABMELDEN"
+    "button": "ANMELDEN"
   }
 }
