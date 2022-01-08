@@ -81,7 +81,7 @@
         </ion-grid>
       </ion-card>
 
-      <ion-router-link href="/tabs/datenbank">
+      <ion-router-link href="/:lang/tabs/datenbank">
         <ion-button>Zurück</ion-button>
       </ion-router-link>
     </ion-content>
@@ -91,7 +91,7 @@
 <script lang="ts">
 import { IonPage, IonHeader, IonToolbar, IonContent, IonIcon} from '@ionic/vue';
 import { skullOutline, starOutline, sunnyOutline, partlySunnyOutline, cloudOutline } from 'ionicons/icons';
-import {defineComponent, ref} from 'vue';
+import {defineComponent} from 'vue';
 import axios from "axios";
 import {Pflanze} from "@/types/pflanze";
 

@@ -14,7 +14,9 @@
 
       <ion-title color="primary"><h2>Pflanze hinzufügen</h2></ion-title>
 
-      <ion-list>
+
+      <ion-item>
+
         <ion-item>
           <ion-label>Pflanzenart</ion-label>
           <ion-select placeholder="Select One">
@@ -22,18 +24,22 @@
                                v-bind:key="item.pid">{{ item.name }}</ion-select-option>
           </ion-select>
         </ion-item>
-      </ion-list>
+
 
       <ion-item>
         <ion-label>Sensor</ion-label>
         <ion-input placeholder="Enter Input"></ion-input>
       </ion-item>
 
-      <ion-router-link href="/tabs/meinePflanzen">
-        <ion-button>Speichern</ion-button>
+      <ion-router-link href="/:link/tabs/meinePflanzen">
+        <ion-button @click="sendData('save')">Speichern</ion-button>
       </ion-router-link>
+      </ion-item>
 
-      <ion-router-link href="/tabs/meinePflanzen">
+
+
+
+      <ion-router-link href="/:link/tabs/meinePflanzen">
         <ion-button>Abbrechen</ion-button>
       </ion-router-link>
 
@@ -45,7 +51,7 @@
 
 
 <script lang="ts">
-import { IonPage, IonHeader, IonToolbar, IonContent, IonList } from '@ionic/vue';
+import { IonPage, IonHeader, IonToolbar, IonContent } from '@ionic/vue';
 import {defineComponent} from 'vue';
 import axios from "axios";
 import {Pflanze} from "@/types/pflanze";
@@ -53,11 +59,12 @@ import {Pflanze} from "@/types/pflanze";
 
 export default defineComponent ({
   name: 'AddPlant',
-  components: { IonHeader, IonToolbar, IonContent, IonPage, IonList},
+  components: { IonHeader, IonToolbar, IonContent, IonPage},
 
   data(){
     return{
       plants: null as unknown as Pflanze[],
+      sensordaten: null as any,
 
     }
   },
@@ -67,6 +74,15 @@ export default defineComponent ({
           this.plants = response.data
         })
   },
+
+  sendData() {
+    axios.get('http://localhost:8080/planti/addsensor')
+        .then(response => {
+          this.sensordaten = response.data
+          console.log(this.sensordaten)
+        })
+  }
+
 
 
 })
