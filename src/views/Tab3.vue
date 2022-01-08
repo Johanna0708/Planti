@@ -59,7 +59,21 @@
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonButton } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import GMap from './GMap.vue';
+import {Storage} from "@capacitor/storage";
 
+
+const setName = async () => {
+  await Storage.set({
+    key: 'name',
+    value: 'Max',
+  });
+};
+
+const checkName = async () => {
+  const { value } = await Storage.get({ key: 'name' });
+
+  alert(`Hello ${value}!`);
+};
 
 export default defineComponent ({
   name: 'Tab3',
@@ -74,8 +88,13 @@ export default defineComponent ({
     },
     ]
 
+
+
     return { markers};
   },
+  //created(){
+
+  //}
 })
 
 </script>
