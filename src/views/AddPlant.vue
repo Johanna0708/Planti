@@ -12,19 +12,19 @@
     </ion-header>
     <ion-content :fullscreen="true">
 
-      <ion-title color="primary"><h2>Pflanze hinzufügen</h2></ion-title>
+      <ion-title color="primary"><h2>{{ $t('addplant.title') }}</h2></ion-title>
 
 
 
 
 
-
-        <ion-label>Pflanzenart</ion-label>
+        <ion-item>
+        <ion-label>{{ $t('addplant.plant') }}</ion-label>
         <ion-select placeholder="Select One">
           <ion-select-option v-for="item in plants"
                              v-bind:key="item.pid">{{ item.name }}</ion-select-option>
         </ion-select>
-
+        </ion-item>
 
         <ion-item>
         <ion-label>Sensor</ion-label>
@@ -32,7 +32,7 @@
 
         <!-- <ion-router-link href="/:link/tabs/meinePflanzen"> -->
           <ion-button @click="sendData()">
-            Speichern
+            {{ $t('addplant.button1') }}
           </ion-button>
         <!-- </ion-router-link> -->
       </ion-item>
@@ -43,7 +43,7 @@
 
 
         <ion-router-link href="/:link/tabs/meinePflanzen">
-          <ion-button>Abbrechen</ion-button>
+          <ion-button>{{ $t('addplant.button2') }}</ion-button>
         </ion-router-link>
 
 
