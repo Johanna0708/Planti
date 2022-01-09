@@ -6,5 +6,5 @@ export interface Pflanze {
     merkmale?: string;
     wissName?: string;
     picture?: string;
-    enname?: string;
+    enName?: string;
 }
