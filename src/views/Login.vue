@@ -15,13 +15,13 @@
 
       <ion-item>
         <ion-label>Benutzername: </ion-label>
-        <ion-input placeholder="Enter Input"></ion-input>
+        <ion-input  v-model="username"  placeholder="Enter Input"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label>Passwort: </ion-label>
-        <ion-input placeholder="Enter Input"></ion-input>
+        <ion-input v-model="pw" placeholder="Enter Input"></ion-input>
       </ion-item>
-      <ion-button>Anmelden</ion-button>
+      <ion-button v-on:click="anmelden">Anmelden</ion-button>
       <ion-router-link href="/:link/tabs/tab3">
         <ion-button>Abbrechen</ion-button>
       </ion-router-link>
@@ -39,14 +39,47 @@
 
 
 <script lang="ts">
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonInput } from '@ionic/vue';
 import { defineComponent } from 'vue';
+import axios from "axios";
 
 
 
 export default defineComponent ({
   name: 'Login',
-  components: {IonHeader, IonToolbar, IonTitle, IonContent, IonPage},
+  components: {IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonInput},
+
+  data: function(){
+    return{
+      username:"",
+      pw:""
+    }
+  },
+
+
+  methods: {
+    anmelden() {
+      //console.log(this.username, this.pw)
+      axios.get("http://localhost:8080/planti/getPW", {params:{name: this.username}})
+      .then(response => {
+        if (response.data==this.pw){
+          window.localStorage.setItem("username", this.username)
+        }
+        else {
+          alert("Passwort oder Nutzername ist falsch.")
+        }
+      })
+      console.log(window.localStorage.getItem("username"))
+    }
+
+  },
+  created(){
+
+    console.log(window.localStorage.getItem("username"))
+  }
+
+
+
 
 
 })
