@@ -9,7 +9,14 @@
     "title1": "My tasks",
     "title2": "My plants"
   },
-  "plants": "item.name",
+  "addplant": {
+    "title": "Add plant",
+    "plant": "Plant Species",
+    "button1": "SAVE",
+    "button2": "CANCEL"
+  },
+
+  "plants": "2",
 
   "databaseDetails": {
     "difficulty": "Difficulty",
