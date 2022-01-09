@@ -17,7 +17,16 @@
         <ion-item lines="none">
           <ion-label class="ion-text-wrap">
             <ion-text color="primary">
-              <h1>{{plant.name}}</h1>
+
+
+              <ion-label v-if="$t('plants') == 1">
+                <h1>{{plant.name}}</h1>
+              </ion-label>
+              <ion-label v-if="$t('plants') == 2">
+                <h1>{{plant.enName}}</h1>
+              </ion-label>
+
+
             </ion-text>
             <p>{{plant.wissName}}</p>
           </ion-label>

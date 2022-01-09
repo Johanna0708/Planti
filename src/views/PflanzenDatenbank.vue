@@ -19,8 +19,12 @@
           <ion-thumbnail slot="start">
             <ion-img :src='item.picture'/>
           </ion-thumbnail>
-          <ion-label>
+
+          <ion-label v-if="$t('plants') == 1">
             {{item.name}}
+          </ion-label>
+          <ion-label v-if="$t('plants') == 2">
+            {{item.enName}}
           </ion-label>
         </ion-item>
       </ion-list>

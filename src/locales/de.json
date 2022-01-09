@@ -9,7 +9,14 @@
     "title1": "Meine Aufgaben",
     "title2": "Meine Pflanzen"
   },
-  "plants": "item.name",
+  "addplant": {
+    "title": "Pflanze hinzufügen",
+    "plant": "Pflanzenart",
+    "button1": "SPEICHERN",
+    "button2": "ABBRECHEN"
+  },
+
+  "plants": "1",
 
   "databaseDetails": {
     "difficulty": "Schwierigkeit",
