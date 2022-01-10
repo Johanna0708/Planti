@@ -7,7 +7,8 @@
   },
   "page1": {
     "title1": "Meine Aufgaben",
-    "title2": "Meine Pflanzen"
+    "title2": "Meine Pflanzen",
+    "diagram": "Bewässerungsverlauf"
   },
   "addplant": {
     "title": "Pflanze hinzufügen",
@@ -32,6 +33,23 @@
     "place": "Ort: 14770 Brandenburg an der Havel",
     "subtitle2": "Unser Büro befindet sich hier:",
     "subtitle3": "Kontaktdaten",
-    "button": "ANMELDEN"
+    "button": "ANMELDEN",
+    "button2": "ABMELDEN"
+  },
+  "login": {
+    "title": "Anmeldung",
+    "name": "Benutzername",
+    "password": "Passwort",
+    "button1": "ANMELDEN",
+    "button2": "ABBRECHEN",
+    "newAcc": "Neu bei Planti?",
+    "button3": "Neuen Account anlegen"
+  },
+  "reg": {
+    "title": "Registrierung",
+    "name": "Benutzername",
+    "password": "Passwort",
+    "button1": "KONTO ANLEGEN",
+    "button2": "ABBRECHEN"
   }
 }

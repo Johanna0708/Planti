@@ -50,7 +50,7 @@
       <ion-router-link v-if="username==null" href="/:link/tabs/login">
         <ion-button expand="block" fill="outline">{{ $t('page3.button') }}</ion-button>
       </ion-router-link>
-      <ion-button v-else v-on:click="abmelden" expand="block" fill="outline">abmelden</ion-button>
+      <ion-button v-else v-on:click="abmelden" expand="block" fill="outline">{{ $t('page3.button2') }}</ion-button>
 
 
     </ion-content>
@@ -58,7 +58,8 @@
 </template>
 
 <script lang="ts">
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonButton } from '@ionic/vue';
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonItem, IonButton, IonCard, IonCardHeader, IonCardContent,
+  IonCardSubtitle, IonCardTitle } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import GMap from './GMap.vue';
 
@@ -69,7 +70,8 @@ import GMap from './GMap.vue';
 
 export default defineComponent ({
   name: 'Tab3',
-  components: {IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonButton, GMap},
+  components: {IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonButton, IonCard, IonCardHeader, IonCardContent,
+    IonCardSubtitle, IonCardTitle, IonItem, GMap},
 
   data(){
     return{

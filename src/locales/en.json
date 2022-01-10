@@ -7,7 +7,8 @@
   },
   "page1": {
     "title1": "My tasks",
-    "title2": "My plants"
+    "title2": "My plants",
+    "diagram": "Course of irrigation"
   },
   "addplant": {
     "title": "Add plant",
@@ -32,6 +33,23 @@
     "place": "Place: 14770 Brandenburg an der Havel",
     "subtitle2": "Our office is here:",
     "subtitle3": "Contact details",
-    "button": "LOGIN"
+    "button": "LOGIN",
+    "button2": "LOGOUT"
+  },
+  "login": {
+    "title": "Sign in",
+    "name": "Username",
+    "password": "Password",
+    "button1": "SIGN IN",
+    "button2": "CANCEL",
+    "newAcc": "New to Planti?",
+    "button3": "Create an account"
+  },
+  "reg": {
+    "title": "Sign up",
+    "name": "Username",
+    "password": "Password",
+    "button1": "CREATE ACCOUNT",
+    "button2": "CANCEL"
   }
 }
