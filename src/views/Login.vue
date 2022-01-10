@@ -22,9 +22,8 @@
         <ion-input v-model="pw" type="password" placeholder="Enter Input"></ion-input>
       </ion-item>
 
-      <!--<ion-router-link href="/:link/tabs/meinePflanzen">-->
+
       <ion-button v-on:click="anmelden">Anmelden</ion-button>
-      <!--</ion-router-link>-->
 
       <ion-router-link href="/:link/tabs/tab3">
         <ion-button>Abbrechen</ion-button>
@@ -46,6 +45,7 @@
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonInput } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import axios from "axios";
+import router from "@/router";
 
 
 
@@ -53,7 +53,7 @@ export default defineComponent ({
   name: 'Login',
   components: {IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonInput},
 
-  data: function(){
+  data(){
     return{
       username:"",
       pw:""
@@ -68,6 +68,8 @@ export default defineComponent ({
       .then(response => {
         if (response.data==this.pw){
           window.localStorage.setItem("username", this.username)
+          //location.reload()
+          router.push("/:link/tabs/meinePflanzen")
         }
         else {
           alert("Passwort oder Nutzername ist falsch.")
@@ -75,17 +77,11 @@ export default defineComponent ({
       })
       console.log(window.localStorage.getItem("username"))
     }
-
   },
   created(){
 
     console.log(window.localStorage.getItem("username"))
   }
-
-
-
-
-
 })
 
 </script>

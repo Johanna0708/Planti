@@ -50,7 +50,7 @@
       <ion-router-link v-if="username==null" href="/:link/tabs/login">
         <ion-button expand="block" fill="outline">{{ $t('page3.button') }}</ion-button>
       </ion-router-link>
-      <ion-button v-else v-on:click="abmelden" expand="block" fill="outline">abmelden</ion-button>
+      <ion-button v-else v-on:click="abmelden" expand="block" fill="outline">Abmelden</ion-button>
 
 
     </ion-content>
@@ -62,8 +62,6 @@ import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonButton } from 
 import { defineComponent } from 'vue';
 import GMap from './GMap.vue';
 
-//let username = null as any;
-//username=window.localStorage.getItem(username);
 
 
 
@@ -90,10 +88,10 @@ export default defineComponent ({
 
     },
   methods: {
-    abmelden()
-{
+    abmelden() {
   this.username = null as any;
   window.localStorage.removeItem("username")
+  window.location.reload()
 }
 },
   created(){

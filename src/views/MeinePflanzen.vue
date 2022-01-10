@@ -15,7 +15,7 @@
       <!--<language-switcher/>-->
 
 
-
+      <ion-title color="primary"><h2>Hallo {{username}}! </h2></ion-title>
       <ion-title color="primary"><h2>{{ $t('page1.title1') }} </h2></ion-title>
 
       <ion-fab vertical="bottom" horizontal="end" slot="fixed" class="ion-padding-bottom">
@@ -138,6 +138,11 @@ export default defineComponent({
   components: {IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonIcon, IonFab, IonFabButton, IonGrid, IonCol, IonRow,
     IonCard, IonCardContent, VueHighcharts},
 
+  data(){
+    return{
+      username: null as any
+    }
+  },
   setup(){
     const chartOptions = {
       rangeSelector: {
@@ -166,6 +171,9 @@ export default defineComponent({
     return{
       add, chartOptions
     }
+  },
+  created() {
+    this.username=window.localStorage.getItem("username")
   }
 })
 </script>
