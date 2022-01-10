@@ -15,7 +15,7 @@
       <!--<language-switcher/>-->
 
 
-      <ion-title color="primary"><h2>Hallo {{username}}! </h2></ion-title>
+      <ion-title color="primary"><h2>{{ $t('page1.message') }} {{username}}! </h2></ion-title>
       <ion-title color="primary"><h2>{{ $t('page1.title1') }} </h2></ion-title>
 
       <ion-fab vertical="bottom" horizontal="end" slot="fixed" class="ion-padding-bottom">

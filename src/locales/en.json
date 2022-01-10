@@ -6,6 +6,7 @@
     "three": "Settings"
   },
   "page1": {
+    "message": "Hello",
     "title1": "My tasks",
     "title2": "My plants",
     "diagram": "Course of irrigation"

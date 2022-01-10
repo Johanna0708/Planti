@@ -2,6 +2,22 @@
   <ion-page>
     <ion-header>
       <ion-toolbar class="ion-padding-top ion-padding-end">
+
+        <ion-card slot="start">
+          <ion-segment value="Deutsch">
+            <ion-segment-button value="Deutsch">
+              <img height="20" src="../img/flag_de.png"/>
+              <font size="0">Deutsch</font>
+            </ion-segment-button>
+            <ion-segment-button value="Englisch">
+              <img height="20" src="../img/flag_en.png"/>
+              <font size="0">Englisch</font>
+            </ion-segment-button>
+          </ion-segment>
+
+        </ion-card>
+
+
         <ion-item slot="end">
           <div>
             <img width="130" src="../img/Logo.png"/>
@@ -88,14 +104,14 @@ export default defineComponent ({
 
     return { markers};
 
-    },
+  },
   methods: {
     abmelden() {
-  this.username = null as any;
-  window.localStorage.removeItem("username")
-  window.location.reload()
-}
-},
+      this.username = null as any;
+      window.localStorage.removeItem("username")
+      window.location.reload()
+    }
+  },
   created(){
     this.username=window.localStorage.getItem("username")
     console.log(this.username)
