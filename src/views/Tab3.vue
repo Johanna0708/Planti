@@ -47,10 +47,11 @@
 
       </ion-card>
 
-
-      <ion-router-link href="/:link/tabs/login">
-      <ion-button expand="block" fill="outline">{{ $t('page3.button') }}</ion-button>
+      <ion-router-link v-if="username==null" href="/:link/tabs/login">
+        <ion-button expand="block" fill="outline">{{ $t('page3.button') }}</ion-button>
       </ion-router-link>
+      <ion-button v-else v-on:click="abmelden" expand="block" fill="outline">abmelden</ion-button>
+
 
     </ion-content>
   </ion-page>
@@ -60,26 +61,21 @@
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonButton } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import GMap from './GMap.vue';
-import {Storage} from "@capacitor/storage";
+
+//let username = null as any;
+//username=window.localStorage.getItem(username);
 
 
-const setName = async () => {
-  await Storage.set({
-    key: 'name',
-    value: 'Max',
-  });
-};
-
-const checkName = async () => {
-  const { value } = await Storage.get({ key: 'name' });
-
-  alert(`Hello ${value}!`);
-};
 
 export default defineComponent ({
   name: 'Tab3',
   components: {IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonButton, GMap},
 
+  data(){
+    return{
+      username: null as any
+    }
+  },
   setup() {
 
     const markers = [{
@@ -90,12 +86,20 @@ export default defineComponent ({
     ]
 
 
-
     return { markers};
-  },
-  //created(){
 
-  //}
+    },
+  methods: {
+    abmelden()
+{
+  this.username = null as any;
+  window.localStorage.removeItem("username")
+}
+},
+  created(){
+    this.username=window.localStorage.getItem("username")
+    console.log(this.username)
+  }
 })
 
 </script>
