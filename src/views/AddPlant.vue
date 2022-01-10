@@ -54,7 +54,7 @@
 
 
 <script lang="ts">
-import { IonPage, IonHeader, IonToolbar, IonContent, IonItem, IonLabel, IonInput, IonSelect, IonSelectOption } from '@ionic/vue';
+import { IonPage, IonHeader, IonToolbar, IonContent, IonItem, IonLabel, IonInput, IonSelect, IonSelectOption, IonTitle, IonButton } from '@ionic/vue';
 import {defineComponent} from 'vue';
 import axios from "axios";
 import {Pflanze} from "@/types/pflanze";
@@ -62,7 +62,7 @@ import {Pflanze} from "@/types/pflanze";
 
 export default defineComponent ({
   name: 'AddPlant',
-  components: { IonPage, IonHeader, IonToolbar, IonContent, IonItem, IonLabel, IonInput, IonSelect, IonSelectOption},
+  components: { IonPage, IonHeader, IonToolbar, IonContent, IonItem, IonLabel, IonInput, IonSelect, IonSelectOption, IonTitle, IonButton},
 
   data(){
     return{
