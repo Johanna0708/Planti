@@ -15,13 +15,17 @@
 
       <ion-item>
         <ion-label>Benutzername: </ion-label>
-        <ion-input  v-model="username"  placeholder="Enter Input"></ion-input>
+        <ion-input  v-model="username" placeholder="Enter Input"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label>Passwort: </ion-label>
-        <ion-input v-model="pw" placeholder="Enter Input"></ion-input>
+        <ion-input v-model="pw" type="password" placeholder="Enter Input"></ion-input>
       </ion-item>
+
+      <!--<ion-router-link href="/:link/tabs/meinePflanzen">-->
       <ion-button v-on:click="anmelden">Anmelden</ion-button>
+      <!--</ion-router-link>-->
+
       <ion-router-link href="/:link/tabs/tab3">
         <ion-button>Abbrechen</ion-button>
       </ion-router-link>
