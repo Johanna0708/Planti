@@ -29,14 +29,12 @@
         </ion-item>
       </ion-list>
 
-
-
     </ion-content>
   </ion-page>
 </template>
 
 <script lang="ts">
-import { IonPage, IonHeader, IonToolbar, IonContent,IonList, IonThumbnail, IonImg } from '@ionic/vue';
+import { IonPage, IonHeader, IonToolbar, IonContent, IonList, IonThumbnail, IonImg, IonItem, IonLabel  } from '@ionic/vue';
 import { leaf, search } from 'ionicons/icons';
 import {defineComponent} from 'vue';
 import axios from "axios";
@@ -44,7 +42,7 @@ import {Pflanze} from "@/types/pflanze";
 
 export default defineComponent ({
   name: 'PflanzenDatenbank',
-  components: { IonHeader, IonToolbar, IonContent, IonPage, IonList, IonThumbnail, IonImg },
+  components: { IonHeader, IonToolbar, IonContent, IonPage, IonList, IonThumbnail, IonImg, IonItem, IonLabel },
 
   data(){
     return{
