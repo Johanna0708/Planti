@@ -121,7 +121,8 @@
 </template>
 
 <script lang="ts">
-import {IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, IonFab, IonFabButton } from '@ionic/vue';
+import {IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, IonFab, IonFabButton, IonGrid, IonCol, IonRow,
+IonCard, IonCardContent} from '@ionic/vue';
 import { defineComponent,  } from 'vue';
 import { add } from 'ionicons/icons';
 import VueHighcharts from 'vue3-highcharts';
@@ -134,7 +135,8 @@ StockCharts(HighCharts);
 
 export default defineComponent({
   name: 'MeinePflanzen',
-  components: {IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonIcon, IonFab, IonFabButton, VueHighcharts},
+  components: {IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonIcon, IonFab, IonFabButton, IonGrid, IonCol, IonRow,
+    IonCard, IonCardContent, VueHighcharts},
 
   setup(){
     const chartOptions = {
