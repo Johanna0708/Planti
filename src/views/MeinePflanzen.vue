@@ -58,7 +58,7 @@
         </ion-card-content>
       </ion-card>
 
-       <ion-title color="primary"><h2>{{ $t('page1.title2') }}</h2></ion-title>
+       <ion-title color="primary" class="ion-padding-top"><h2>{{ $t('page1.title2') }}</h2></ion-title>
 
       <ion-grid>
         <ion-row>
@@ -105,10 +105,11 @@
 
           </ion-col>
         </ion-row>
-
-
       </ion-grid>
 
+      <ion-title color="primary" class="ion-padding-top"><h2>{{ $t('page1.diagram') }}</h2></ion-title>
+<ion-card>
+  <ion-card-content>
       <vue-highcharts
           type="stockChart"
           :options="chartOptions"
@@ -116,13 +117,15 @@
           :oneToOneUpdate="false"
           :animateOnUpdate="true"
           @updated="onUpdated"/>
+  </ion-card-content>
+</ion-card>
     </ion-content>
   </ion-page>
 </template>
 
 <script lang="ts">
 import {IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, IonFab, IonFabButton, IonGrid, IonCol, IonRow,
-IonCard, IonCardContent} from '@ionic/vue';
+IonCard, IonCardContent, IonItem} from '@ionic/vue';
 import { defineComponent,  } from 'vue';
 import { add } from 'ionicons/icons';
 import VueHighcharts from 'vue3-highcharts';
@@ -136,7 +139,7 @@ StockCharts(HighCharts);
 export default defineComponent({
   name: 'MeinePflanzen',
   components: {IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonIcon, IonFab, IonFabButton, IonGrid, IonCol, IonRow,
-    IonCard, IonCardContent, VueHighcharts},
+    IonCard, IonCardContent, IonItem, VueHighcharts},
 
   data(){
     return{
@@ -150,8 +153,9 @@ export default defineComponent({
       },
 
       title: {
-        text: 'Bewässerungsverlauf',
+        text: 'Bergpalme',
       },
+
       series: [
         {
           name: 'Linie 1',
@@ -165,6 +169,7 @@ export default defineComponent({
             [1635942600000, 57.32],
             [1636029000000, 58.02],
             [1636201800000, 57]],
+          color: '#009921',
         },
       ],
     };

@@ -98,7 +98,8 @@
 </template>
 
 <script lang="ts">
-import { IonPage, IonHeader, IonToolbar, IonContent, IonIcon} from '@ionic/vue';
+import { IonPage, IonHeader, IonToolbar, IonContent, IonIcon, IonItem, IonCard, IonButton, IonLabel, IonText, IonGrid,
+IonCol, IonRow, IonImg} from '@ionic/vue';
 import { skullOutline, starOutline, sunnyOutline, partlySunnyOutline, cloudOutline } from 'ionicons/icons';
 import {defineComponent} from 'vue';
 import axios from "axios";
@@ -107,7 +108,8 @@ import {Pflanze} from "@/types/pflanze";
 
 export default defineComponent ({
   name: 'PflanzenDatenbankDetails',
-  components: { IonHeader, IonToolbar, IonContent, IonPage, IonIcon},
+  components: { IonHeader, IonToolbar, IonContent, IonPage, IonIcon, IonItem, IonCard, IonButton, IonLabel, IonText, IonGrid,
+    IonCol, IonRow, IonImg},
 
   data: function () {
     return {
