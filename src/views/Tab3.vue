@@ -14,7 +14,6 @@
               <font size="0">Englisch</font>
             </ion-segment-button>
           </ion-segment>
-
         </ion-card>
 
 
