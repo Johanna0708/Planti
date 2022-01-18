@@ -6,6 +6,7 @@
     "three": "Einstellungen"
   },
   "page1": {
+    "message": "Hallo",
     "title1": "Meine Aufgaben",
     "title2": "Meine Pflanzen",
     "diagram": "Bewässerungsverlauf"
