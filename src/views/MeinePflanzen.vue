@@ -163,12 +163,9 @@ export default defineComponent({
             rangeSelector: {
               selected: 1,
             },
-            title: {
-              text: 'Bergpalme',
-            },
             series: [
               {
-                name: 'Linie 1',
+                name: 'Efeutute',
                 data: TestData,
                 color: '#009921',
               },
