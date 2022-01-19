@@ -32,10 +32,10 @@
 
 
       <ion-router-link href="/:link/tabs/reg">
-      <ion-item class="ion-padding-top">
-        {{ $t('login.newAcc') }}
-        <button> {{ $t('login.button3') }}</button>
-      </ion-item>
+        <ion-item class="ion-padding-top">
+          {{ $t('login.newAcc') }}
+          <button> {{ $t('login.button3') }}</button>
+        </ion-item>
       </ion-router-link>
     </ion-content>
   </ion-page>
@@ -66,16 +66,16 @@ export default defineComponent ({
     anmelden() {
       //console.log(this.username, this.pw)
       axios.get("http://localhost:8080/planti/getPW", {params:{name: this.username}})
-      .then(response => {
-        if (response.data==this.pw){
-          window.localStorage.setItem("username", this.username)
-          //location.reload()
-          router.push("/:link/tabs/meinePflanzen")
-        }
-        else {
-          alert("Passwort oder Nutzername ist falsch.")
-        }
-      })
+          .then(response => {
+            if (response.data==this.pw){
+              window.localStorage.setItem("username", this.username)
+              //location.reload()
+              router.push("/:link/tabs/meinePflanzen")
+            }
+            else {
+              alert("Passwort oder Nutzername ist falsch.")
+            }
+          })
       console.log(window.localStorage.getItem("username"))
     }
   },
