@@ -8,12 +8,20 @@
   "page1": {
     "message": "Hallo",
     "title1": "Meine Aufgaben",
+    "case1": "Grünlilie muss gegossen werden!",
+    "case2": "Grünlilie hat genügend Wasser!",
     "title2": "Meine Pflanzen",
     "diagram": "Bewässerungsverlauf"
   },
   "addplant": {
     "title": "Pflanze hinzufügen",
     "plant": "Pflanzenart",
+    "plant1": "Gefleckte Efeutute",
+    "plant2": "Grünlilie",
+    "plant3": "Bogenhanf",
+    "plant4": "Bergpalme",
+    "plant5": "Zebra-Ampelkraut",
+    "plant6": "Gummibaum",
     "button1": "SPEICHERN",
     "button2": "ABBRECHEN"
   },
@@ -32,7 +40,7 @@
     "subtitle1": "Anschrift",
     "street": "Straße: Magdeburger Straße 50",
     "place": "Ort: 14770 Brandenburg an der Havel",
-    "subtitle2": "Unser Büro befindet sich hier:",
+    "subtitle2": "Hier können Sie uns finden:",
     "subtitle3": "Kontaktdaten",
     "button": "ANMELDEN",
     "button2": "ABMELDEN"

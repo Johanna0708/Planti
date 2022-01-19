@@ -22,6 +22,10 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/MeinePflanzen.vue')
       },
       {
+        path: 'meinePflanzen/:pid',
+        component: () => import('@/views/MeinePflanzenDetails.vue')
+      },
+      {
         path: 'datenbank',
         component: () => import('@/views/PflanzenDatenbank.vue')
       },
@@ -45,6 +49,7 @@ const routes: Array<RouteRecordRaw> = [
         path: 'reg',
         component: () => import('@/views/Registration.vue')
       },
+
     ]
   }
 ]
