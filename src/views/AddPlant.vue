@@ -17,12 +17,12 @@
       <ion-item>
         <ion-label>{{ $t('addplant.plant') }}</ion-label>
         <ion-select v-model="plantid" placeholder="Select One">
-          <ion-select-option value="1" > Gefleckte Efeutute</ion-select-option>
-          <ion-select-option value="2" > Grünlilie </ion-select-option>
-          <ion-select-option value="3" > Bogenhanf </ion-select-option>
-          <ion-select-option value="4" > Bergpalme </ion-select-option>
-          <ion-select-option value="5" > Zebra-Ampelkraut </ion-select-option>
-          <ion-select-option value="6" > Gummibaum </ion-select-option>
+          <ion-select-option value="1" > {{ $t('addplant.plant1') }}</ion-select-option>
+          <ion-select-option value="2" > {{ $t('addplant.plant2') }} </ion-select-option>
+          <ion-select-option value="3" > {{ $t('addplant.plant3') }} </ion-select-option>
+          <ion-select-option value="4" > {{ $t('addplant.plant4') }} </ion-select-option>
+          <ion-select-option value="5" > {{ $t('addplant.plant5') }} </ion-select-option>
+          <ion-select-option value="6" > {{ $t('addplant.plant6') }} </ion-select-option>
         </ion-select>
       </ion-item>
 
@@ -32,25 +32,21 @@
         <ion-input v-model="senlink" placeholder="Enter Input"></ion-input>
       </ion-item>
 
-
-
       <ion-item>
         <ion-router-link href="/:link/tabs/meinePflanzen">
-        <ion-button @click="sendData()">
-          {{ $t('addplant.button1') }}
-        </ion-button>
-       </ion-router-link>
+          <ion-button @click="sendData()">
+            {{ $t('addplant.button1') }}
+          </ion-button>
+        </ion-router-link>
 
-      <ion-router-link href="/:link/tabs/meinePflanzen">
-        <ion-button>{{ $t('addplant.button2') }}</ion-button>
-      </ion-router-link>
+        <ion-router-link href="/:link/tabs/meinePflanzen">
+          <ion-button>{{ $t('addplant.button2') }}</ion-button>
+        </ion-router-link>
       </ion-item>
-
 
     </ion-content>
   </ion-page>
 </template>
-
 
 
 <script lang="ts">

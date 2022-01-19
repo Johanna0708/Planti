@@ -31,84 +31,41 @@
       <ion-card v-if="moisture">
         <ion-card  color="danger" v-if="moisture<35">
           <ion-card-content>
-
-            Efeutute muss gegossen werden!
-
+            {{ $t('page1.case1') }}
           </ion-card-content>
         </ion-card>
         <ion-card  color="success" v-else>
           <ion-card-content>
-
-            Efeutute hat genügend Wasser!
-
+            {{ $t('page1.case2') }}
           </ion-card-content>
         </ion-card>
       </ion-card>
 
 
       <ion-title color="primary" class="ion-padding-top"><h2>{{ $t('page1.title2') }}</h2></ion-title>
+      <ion-grid >
+        <ion-col >
+          <ion-row >
+            <ion-card v-for="item in myplants"
+                      :router-link="`/:lang/tabs/meinePflanzen/${item.pid}`"
+                      v-bind:key="item.pid">
+              <ion-card-content>
+                <ion-img slot="start" style="height: 100px" :src='item.picture'/>
 
-      <ion-grid>
-        <ion-row>
-          <ion-col>
-            <ion-card>
-              <ion-card-content>
-                <img height="150" src="../img/Gruenlilie.jpg"/>
-              </ion-card-content>
-              <ion-card-content>
-                <ion-label>
-                  <h2>Grünlilie</h2>
+                <ion-label v-if="$t('plants') == 1">
+                  <h2 text-align="center" >{{ item.name }}</h2>
                 </ion-label>
-              </ion-card-content>
+                <ion-label v-if="$t('plants') == 2">
+                  <h2>{{ item.enName }}</h2>
+                </ion-label>
 
-            </ion-card>
-          </ion-col>
-          <ion-col>
-            <ion-card>
-              <ion-card-content>
-                <img height="150" src="../img/Bergpalme.jpg"/>
-              </ion-card-content>
-              <ion-card-content>
-                <ion-label>
-                  <h2>Bergpalme</h2>
-                </ion-label>
               </ion-card-content>
             </ion-card>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-            <ion-card>
-              <ion-card-content>
-                <img height="150" src="../img/GefEfeutute.jpg"/>
-              </ion-card-content>
-              <ion-card-content>
-                <ion-label>
-                  <h2>Gefleckte Efeutute</h2>
-                </ion-label>
-              </ion-card-content>
-            </ion-card>
-          </ion-col>
-          <ion-col>
-
-          </ion-col>
-        </ion-row>
+          </ion-row>
+        </ion-col>
       </ion-grid>
 
-      <ion-title color="primary" class="ion-padding-top"><h2>{{ $t('page1.diagram') }}</h2></ion-title>
-      <ion-card v-if="moisture">
-        <ion-card-content>
-          <vue-highcharts
-              type="stockChart"
-              :options=chartOptions1
-              :redrawOnUpdate="true"
-              :oneToOneUpdate="false"
-              :animateOnUpdate="true"
-              @updated="onUpdated"/>
-        </ion-card-content>
-      </ion-card>
-      <!--{{SenData}}-->
-      {{chartData}}
+
     </ion-content>
   </ion-page>
 </template>
@@ -118,59 +75,42 @@ import {IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, IonFab, I
   IonCard, IonCardContent, IonItem} from '@ionic/vue';
 import { defineComponent,  } from 'vue';
 import { add } from 'ionicons/icons';
-import VueHighcharts from 'vue3-highcharts';
-import HighCharts from 'highcharts';
-import StockCharts from 'highcharts/modules/stock';
 import axios from "axios";
 import {SData} from "@/types/sData";
 //import LanguageSwitcher from "@/components/LanguageSwitcher.vue";
 
-StockCharts(HighCharts);
-
 
 export default defineComponent({
   name: 'MeinePflanzen',
-  components: {IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonIcon, IonFab, IonFabButton, IonGrid, IonCol, IonRow,
-    IonCard, IonCardContent, IonItem, VueHighcharts},
+  components: {IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonIcon, IonFab, IonFabButton,IonGrid, IonCol, IonRow,
+    IonCard, IonCardContent, IonItem},
 
 
   data(){
     return{
       username: null as any,
       moisture: null as any as number,
-      chartOptions1:null as any
+      myplants: null as any,
     }
   },
+
   setup(){
     return{
       add
     }
   },
   created() {
+    axios.get('http://localhost:8080/planti/meinePflanzen')
+        .then(response => {
+          this.myplants = response.data
+        })
+
     this.username = window.localStorage.getItem("username")
     const TestData: number[][] = [[]];
     axios.get('http://localhost:8080/planti/getData?SID=1')
         .then(response => {
-          TestData[0][0] = response.data[0].time
-          TestData[0][1] = response.data[0].moisture
-          for (let i = 1; i < response.data.length; i++) {
-            const t = response.data[i].time
-            const m = response.data[i].moisture
-            TestData.push([t, m])
-          }
           this.moisture = response.data[response.data.length - 1].moisture
-          this.chartOptions1 = {
-            rangeSelector: {
-              selected: 1,
-            },
-            series: [
-              {
-                name: 'Efeutute',
-                data: TestData,
-                color: '#009921',
-              },
-            ],
-          };
+
         })
   }
 })

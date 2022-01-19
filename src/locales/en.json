@@ -8,12 +8,20 @@
   "page1": {
     "message": "Hello",
     "title1": "My tasks",
+    "case1": "Spider plant needs watering!",
+    "case2": "Spider plant has enough water!",
     "title2": "My plants",
     "diagram": "Course of irrigation"
   },
   "addplant": {
     "title": "Add plant",
     "plant": "Plant Species",
+    "plant1": "Silver vine",
+    "plant2": "Spider Plant",
+    "plant3": "Sansevieria",
+    "plant4": "Chamaedorea",
+    "plant5": "Zebrina pendula",
+    "plant6": "Rubber fig",
     "button1": "SAVE",
     "button2": "CANCEL"
   },
@@ -32,16 +40,16 @@
     "subtitle1": "Address",
     "street": "Street: Magdeburger Straße 50",
     "place": "Place: 14770 Brandenburg an der Havel",
-    "subtitle2": "Our office is here:",
+    "subtitle2": "You can find us here:",
     "subtitle3": "Contact details",
     "button": "LOGIN",
     "button2": "LOGOUT"
   },
   "login": {
-    "title": "Sign in",
+    "title": "Log in",
     "name": "Username",
     "password": "Password",
-    "button1": "SIGN IN",
+    "button1": "LOG IN",
     "button2": "CANCEL",
     "newAcc": "New to Planti?",
     "button3": "Create an account"

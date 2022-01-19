@@ -3,7 +3,7 @@
     <ion-header>
       <ion-toolbar class="ion-padding-top ion-padding-end">
 
-        <ion-card slot="start">
+        <ion-card slot="start" v-if="$t('plants') == 1">
           <ion-segment value="Deutsch">
             <ion-segment-button value="Deutsch">
               <img height="20" src="../img/flag_de.png"/>
@@ -11,7 +11,20 @@
             </ion-segment-button>
             <ion-segment-button value="Englisch">
               <img height="20" src="../img/flag_en.png"/>
-              <font size="0">Englisch</font>
+              <font size="0">English</font>
+            </ion-segment-button>
+          </ion-segment>
+        </ion-card>
+
+        <ion-card slot="start" v-if="$t('plants') == 2">
+          <ion-segment value="Englisch">
+            <ion-segment-button value="Deutsch">
+              <img height="20" src="../img/flag_de.png"/>
+              <font size="0">Deutsch</font>
+            </ion-segment-button>
+            <ion-segment-button value="Englisch">
+              <img height="20" src="../img/flag_en.png"/>
+              <font size="0">English</font>
             </ion-segment-button>
           </ion-segment>
         </ion-card>
