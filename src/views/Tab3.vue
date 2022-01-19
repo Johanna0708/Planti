@@ -92,17 +92,12 @@ export default defineComponent ({
     }
   },
   setup() {
-
     const markers = [{
       lat: 52.41163319339472,
       lng: 12.539792573722497,
       title: "Unser Büro"
-    },
-    ]
-
-
+    }]
     return { markers};
-
   },
   methods: {
     abmelden() {
@@ -113,7 +108,6 @@ export default defineComponent ({
   },
   created(){
     this.username=window.localStorage.getItem("username")
-    console.log(this.username)
   }
 })
 

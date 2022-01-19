@@ -50,20 +50,20 @@ export default defineComponent ({
     }
   },
   methods: {
-      async registrieren() {
-          await axios.get("http://localhost:8080/planti/adduser", {params: {username: this.username, pw: this.pw}})
-                    .then(() => {
-                      window.localStorage.setItem("username", this.username)
-                      //location.reload()
-                      router.push("/:link/tabs/meinePflanzen")
-                    })
-                    .catch(function (error) {
-                      if (error.response) {
-                        alert("Dieser Benutzername ist bereits vergeben!")
-                      } else {
-                        alert("Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.")
-                      }
-                    })
+    async registrieren() {
+      await axios.get("http://localhost:8080/planti/adduser", {params: {username: this.username, pw: this.pw}})
+          .then(() => {
+            window.localStorage.setItem("username", this.username)
+            //location.reload()
+            router.push("/:link/tabs/meinePflanzen")
+          })
+          .catch(function (error) {
+            if (error.response) {
+              alert("Dieser Benutzername ist bereits vergeben!")
+            } else {
+              alert("Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.")
+            }
+          })
     }
   }
 })

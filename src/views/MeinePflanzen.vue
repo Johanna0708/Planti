@@ -28,37 +28,25 @@
       </ion-fab>
 
 
-      <ion-card>
-        <ion-card-content>
+      <ion-card v-if="moisture">
+        <ion-card  color="danger" v-if="moisture<35">
+          <ion-card-content>
 
-          Grünlilie muss gegossen werden!
-          <ion-checkbox
-              slot="end">
-          </ion-checkbox>
-        </ion-card-content>
+            Efeutute muss gegossen werden!
+
+          </ion-card-content>
+        </ion-card>
+        <ion-card  color="success" v-else>
+          <ion-card-content>
+
+            Efeutute hat genügend Wasser!
+
+          </ion-card-content>
+        </ion-card>
       </ion-card>
 
-      <ion-card>
 
-        <ion-card-content>
-          Bergpalme muss gegossen werden!
-          <ion-checkbox
-              slot="end">
-          </ion-checkbox>
-        </ion-card-content>
-
-      </ion-card>
-
-      <ion-card>
-        <ion-card-content>
-          Gefleckte Efeutute muss gegossen werden!
-          <ion-checkbox
-              slot="end">
-          </ion-checkbox>
-        </ion-card-content>
-      </ion-card>
-
-       <ion-title color="primary" class="ion-padding-top"><h2>{{ $t('page1.title2') }}</h2></ion-title>
+      <ion-title color="primary" class="ion-padding-top"><h2>{{ $t('page1.title2') }}</h2></ion-title>
 
       <ion-grid>
         <ion-row>
@@ -96,7 +84,7 @@
               </ion-card-content>
               <ion-card-content>
                 <ion-label>
-                 <h2>Gefleckte Efeutute</h2>
+                  <h2>Gefleckte Efeutute</h2>
                 </ion-label>
               </ion-card-content>
             </ion-card>
@@ -108,29 +96,33 @@
       </ion-grid>
 
       <ion-title color="primary" class="ion-padding-top"><h2>{{ $t('page1.diagram') }}</h2></ion-title>
-<ion-card>
-  <ion-card-content>
-      <vue-highcharts
-          type="stockChart"
-          :options="chartOptions"
-          :redrawOnUpdate="true"
-          :oneToOneUpdate="false"
-          :animateOnUpdate="true"
-          @updated="onUpdated"/>
-  </ion-card-content>
-</ion-card>
+      <ion-card v-if="moisture">
+        <ion-card-content>
+          <vue-highcharts
+              type="stockChart"
+              :options=chartOptions1
+              :redrawOnUpdate="true"
+              :oneToOneUpdate="false"
+              :animateOnUpdate="true"
+              @updated="onUpdated"/>
+        </ion-card-content>
+      </ion-card>
+      <!--{{SenData}}-->
+      {{chartData}}
     </ion-content>
   </ion-page>
 </template>
 
 <script lang="ts">
 import {IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, IonFab, IonFabButton, IonGrid, IonCol, IonRow,
-IonCard, IonCardContent, IonItem} from '@ionic/vue';
+  IonCard, IonCardContent, IonItem} from '@ionic/vue';
 import { defineComponent,  } from 'vue';
 import { add } from 'ionicons/icons';
 import VueHighcharts from 'vue3-highcharts';
 import HighCharts from 'highcharts';
 import StockCharts from 'highcharts/modules/stock';
+import axios from "axios";
+import {SData} from "@/types/sData";
 //import LanguageSwitcher from "@/components/LanguageSwitcher.vue";
 
 StockCharts(HighCharts);
@@ -141,44 +133,48 @@ export default defineComponent({
   components: {IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonIcon, IonFab, IonFabButton, IonGrid, IonCol, IonRow,
     IonCard, IonCardContent, IonItem, VueHighcharts},
 
+
   data(){
     return{
-      username: null as any
+      username: null as any,
+      moisture: null as any as number,
+      chartOptions1:null as any
     }
   },
   setup(){
-    const chartOptions = {
-      rangeSelector: {
-        selected: 1,
-      },
-
-      title: {
-        text: 'Bergpalme',
-      },
-
-      series: [
-        {
-          name: 'Linie 1',
-          data: [
-            [1635161400000, 55.2],
-            [1635247800000, 55.55],
-            [1635420600000, 55.1],
-            [1635593400000, 56.24],
-            [1635769800000, 56.44],
-            [1635856200000, 56.81],
-            [1635942600000, 57.32],
-            [1636029000000, 58.02],
-            [1636201800000, 57]],
-          color: '#009921',
-        },
-      ],
-    };
     return{
-      add, chartOptions
+      add
     }
   },
   created() {
-    this.username=window.localStorage.getItem("username")
+    this.username = window.localStorage.getItem("username")
+    const TestData: number[][] = [[]];
+    axios.get('http://localhost:8080/planti/getData?SID=1')
+        .then(response => {
+          TestData[0][0] = response.data[0].time
+          TestData[0][1] = response.data[0].moisture
+          for (let i = 1; i < response.data.length; i++) {
+            const t = response.data[i].time
+            const m = response.data[i].moisture
+            TestData.push([t, m])
+          }
+          this.moisture = response.data[response.data.length - 1].moisture
+          this.chartOptions1 = {
+            rangeSelector: {
+              selected: 1,
+            },
+            title: {
+              text: 'Bergpalme',
+            },
+            series: [
+              {
+                name: 'Linie 1',
+                data: TestData,
+                color: '#009921',
+              },
+            ],
+          };
+        })
   }
 })
 </script>
