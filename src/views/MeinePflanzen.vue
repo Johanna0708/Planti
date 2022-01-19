@@ -76,7 +76,6 @@ import {IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, IonFab, I
 import { defineComponent,  } from 'vue';
 import { add } from 'ionicons/icons';
 import axios from "axios";
-import {SData} from "@/types/sData";
 //import LanguageSwitcher from "@/components/LanguageSwitcher.vue";
 
 
