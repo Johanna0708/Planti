@@ -33,7 +33,7 @@
       </ion-item>
 
       <ion-item>
-        <ion-router-link href="/:link/tabs/meinePflanzen">
+        <ion-router-link >
           <ion-button @click="sendData()">
             {{ $t('addplant.button1') }}
           </ion-button>
@@ -54,6 +54,7 @@ import { IonPage, IonHeader, IonToolbar, IonContent, IonItem, IonLabel, IonInput
 import {defineComponent} from 'vue';
 import axios from "axios";
 import {Pflanze} from "@/types/pflanze";
+import router from "@/router";
 
 
 export default defineComponent ({
@@ -80,6 +81,7 @@ export default defineComponent ({
       axios.get('http://localhost:8080/planti/addsensor', {params: {pid:this.plantid, link:this.senlink}})
           .then(function (response) {
             console.log(response);
+            router.push("/:link/tabs/meinePflanzen")
           })
           .catch(function (error) {
             console.log(error);
